@@ -19,4 +19,21 @@ var generateBoard = function(width, height) {
   console.log(board);
 }
 
-generateBoard(311, 150);
+// generateBoard(311, 150);
+
+var generateSquareboard = function(size) {
+  board = '';
+  for (var x = size; x > 0; x--) {
+    for (var y = size; y > 0; y--) {
+      if ((x + y) % 2 == 0) {
+        board += ' ';
+      } else {
+        board += '#';
+      }
+    }
+    board += '\n';
+  }
+  console.log(board);
+}
+
+generateSquareboard(20); 
