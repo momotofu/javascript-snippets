@@ -7,9 +7,6 @@ function power(base, exponent) {
     return base * power(base, exponent - 1);
 }
 
-console.log(power(3, 5));
-
-
 /*
 find(1, "1")
   find(6, "(1 + 5)")
@@ -39,4 +36,14 @@ function findSolution(target) {
   return find(1, "1");
 }
 
-console.log(findSolution(24));
+function isEven(n) {
+  var iteration = n > 0 ? (n - 2): -1 * (n - 2); 
+  if (iteration === 0) 
+    return true
+  else if (iteration === 1) 
+    return false 
+  else 
+    return isEven(iteration);
+}
+
+console.log(isEven(2123));
