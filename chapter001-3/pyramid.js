@@ -29,3 +29,7 @@ do {
     numberOfPyramids -= 1; 
 } while (numberOfPyramids > 0);
 
+/** build oblisiks to compliment the pyramid.
+Can I make do while purposefull? **/ 
+
+

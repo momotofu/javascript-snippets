@@ -14,3 +14,7 @@ var fizzBuzz = function(count) {
 }
 
 fizzBuzz(100);
+
+/** write out all the different
+ways this can be accomplished.
+Can this be simplified further?**/

@@ -24,3 +24,5 @@ var landscape = function() {
 };
 
 landscape();
+
+/** simplify and enhence **/

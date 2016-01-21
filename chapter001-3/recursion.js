@@ -7,22 +7,6 @@ function power(base, exponent) {
     return base * power(base, exponent - 1);
 }
 
-/*
-find(1, "1")
-  find(6, "(1 + 5)")
-    find(11, "((1 + 5) + 5)")
-      find(16, "(((1 + 5) + 5) + 5)")
-        too big
-      find(33, "(((1 + 5) + 5) * 3)")
-        too big
-      find(18, "((1 + 5) * 3)")
-        too big
-    find(3, "(1 * 3)")
-      find(8, "((1 * 3) + 5)")
-        find(13, "(((1 * 3) + 5) + 5)")
-          found!”
-*/
-
 function findSolution(target) {
   function find(start, history) {
     if (start == target)
@@ -47,3 +31,22 @@ function isEven(n) {
 }
 
 console.log(isEven(2123));
+
+/** write out the call stack for 
+each function **/ 
+
+/*
+find(1, "1")
+  find(6, "(1 + 5)")
+    find(11, "((1 + 5) + 5)")
+      find(16, "(((1 + 5) + 5) + 5)")
+        too big
+      find(33, "(((1 + 5) + 5) * 3)")
+        too big
+      find(18, "((1 + 5) * 3)")
+        too big
+    find(3, "(1 * 3)")
+      find(8, "((1 * 3) + 5)")
+        find(13, "(((1 * 3) + 5) + 5)")
+          found!”
+*/

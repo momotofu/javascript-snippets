@@ -6,3 +6,7 @@ function multiplier(factor) {
 
 var thrice = multiplier(3);
 console.log(thrice(4)); 
+
+/** take this to 
+three levels.
+**/

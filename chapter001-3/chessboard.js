@@ -1,4 +1,4 @@
-var generateBoard = function(width, height) {
+function generateBoard(width, height) {
   var board = '';
   var rowCount = height; 
   var colCount = width;
@@ -19,9 +19,9 @@ var generateBoard = function(width, height) {
   console.log(board);
 }
 
-// generateBoard(311, 150);
+generateBoard(311, 150);
 
-var generateSquareboard = function(size) {
+function generateSquareboard(size) {
   board = '';
   for (var x = size; x > 0; x--) {
     for (var y = size; y > 0; y--) {
@@ -37,3 +37,9 @@ var generateSquareboard = function(size) {
 }
 
 generateSquareboard(20); 
+
+/**
+write a function that generates a diamond.
+Write a function the generates a cube. 
+Write a function that generates a tesseract. 
+**/ 

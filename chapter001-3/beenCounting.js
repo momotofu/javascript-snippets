@@ -8,3 +8,9 @@ function beanCount(char, string) {
 }
 
 console.log(beanCount('z', 'zazluciouszzzigut'));
+
+/** beanSpill
+Write a function that takes a character
+and a string and returns a new string with
+the character glued in randomly 
+**/ 
