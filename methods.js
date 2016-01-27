@@ -10,6 +10,7 @@ Methods from an array:
 var arrows = [];
 arrows.push('fire', 'ice', 'lightning', 'steel');
 console.log(arrows.join(' '));
+console.log(arrows);
 arrows.pop();
 console.log(arrows);
 /**
