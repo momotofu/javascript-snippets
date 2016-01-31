@@ -9,6 +9,20 @@ function beanCount(char, string) {
 
 console.log(beanCount('z', 'zazluciouszzzigut'));
 
+
+function beenSpatter(char, string) {
+  var beans = '';
+
+  for (var iteration = 0; iteration < string.length; iteration++) {
+    beans += string[iteration]; 
+    
+    var count = Math.random();
+    while (count > 0) {
+      beans += char; 
+    }
+  }
+
+}
 /** beanSpill
 Write a function that takes a character
 and a string and returns a new string with
