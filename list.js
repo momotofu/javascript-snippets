@@ -32,13 +32,13 @@ function prepend(value, list) {
   return {value: value, rest: list}
 }
 
-function nth(n, list) {
-  for (var node = list; node.value != n; node = node.rest)
-    var node = list;
-    while (node.value != n) {
-      node = node.rest; 
-    } 
-    return node.value;
+function nth(list, n) {
+  if (!list)
+    return undefined;
+  else if (n == 0)
+    return list.value;
+  else
+    return nth(list.rest, n - 1);
 }
 
 console.log(nth(2, list)); 
