@@ -42,3 +42,25 @@ function nth(list, n) {
 }
 
 console.log(nth(2, list)); 
+
+
+/** Branden's contribution **/ 
+var arr = [1,2,3,4,5];
+
+var l = createList(arr);
+
+function listToArray(list) {
+  var arr = [];
+  var el = list;
+  while (el) { 
+    if(el) {
+      arr.push(el.value);
+      el = el.rest;
+    } else {
+      el = false;
+    }
+ }
+  return arr; 
+}
+
+var res = listToArray(l);
