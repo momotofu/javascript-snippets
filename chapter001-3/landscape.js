@@ -64,7 +64,7 @@ function absLandcape(flats, mountains) {
 }
 
 function buildLandScape() {
-  absLandcape(10, 6);
+  absLandcape(5, 20);
 }
 
 

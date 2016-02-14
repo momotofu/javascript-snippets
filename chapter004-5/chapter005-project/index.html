@@ -10,6 +10,8 @@
 </div>  
 
 <script>
+var output = document.getElementById("output");
+
 var ph = byName["Philibert Haverbeke"];
 console.log(reduceAncestors(ph, sharedDNA, 0) / 4);
 
@@ -27,10 +29,11 @@ youngPeople.forEach(function(n) {
 }); 
 
 
-console.log(names); 
 
-var output = document.getElementById("output");
-console.log(output);  
-output.innerHTML = names.join(', '); 
+update(names.join(' ')); 
+
+function update(n) {
+  output.innerHTML = n; 
+}
 </script>
 </body>
