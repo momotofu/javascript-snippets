@@ -46,6 +46,25 @@ journal.entries.forEach(function(n) {
   }));
 });
 
+var paddedJournal = map(journal.entries[0], function(n) {
+  if (typeof n == 'string')
+    return '00' + n + '00'; 
+  else 
+    return n  
+});
+
+console.log(paddedJournal); 
+
+
+
+function map(array, transform) {
+  var newArray = []; 
+  array.forEach(function(n) {
+    newArray.push(transform(n))
+  });
+  return newArray;
+}
+
 /**
 
 **/
