@@ -35,14 +35,23 @@ var twoDArray = [
 ]; 
 
 
+
 // gulf of execution 
 var names = []; 
 youngPeople.forEach(function(n) {
   names.push(n.name); 
 }); 
 
+
 update(names.join(' ')); 
 update(flatten(twoDArray)); 
+update(every(names, function(n) {
+  return typeof n == 'string'; 
+})); 
+update(some(names, function(n) {
+  return n.length >= 5; 
+}))
+
 
 
 // functions 
@@ -52,9 +61,31 @@ function flatten(arrayOfArays) {
   }).join(' I am '); 
 }
 
+
 function update(n) {
   output.innerHTML = ''; 
   output.innerHTML = n; 
+}
+
+
+function every(array, assertion) {
+  bool = true; 
+  array.forEach(function(n) {
+    if (!assertion(n)) {
+      bool = false; 
+    }
+  }); 
+  return bool; 
+}
+
+
+function some(array, assertion) {
+  bool = false  
+  array.forEach(function(n) {
+    if (assertion(n))
+      bool = true; 
+  });
+  return bool; 
 }
 
 
