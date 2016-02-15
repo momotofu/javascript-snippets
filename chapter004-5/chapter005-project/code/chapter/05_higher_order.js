@@ -34,7 +34,9 @@ ancestry.forEach(function(person) {
   byName[person.name] = person;
 });
 
+
 // Your code here.
+
 
 function filter(array, test) {
   var passed = [];

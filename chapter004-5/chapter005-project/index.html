@@ -23,18 +23,40 @@ var youngPeople = filter(JSON.parse(ANCESTRY_FILE), function(n) {
   return n.born > 1900 && n.born < 1925; 
 }); 
 
+/** my code **/ 
+
+
+// data
+var twoDArray = [
+  ['music', 'art'], 
+  ['philosophy', 'psychology'],
+  ['bordom', 'absurdity'],
+  ['time', 'space']  
+]; 
+
+
+// gulf of execution 
 var names = []; 
 youngPeople.forEach(function(n) {
   names.push(n.name); 
 }); 
 
-
-
 update(names.join(' ')); 
+update(flatten(twoDArray)); 
+
+
+// functions 
+function flatten(arrayOfArays) {
+  return arrayOfArays.reduce(function(prev, cur) {
+    return prev.concat(cur); 
+  }).join(' I am '); 
+}
 
 function update(n) {
+  output.innerHTML = ''; 
   output.innerHTML = n; 
 }
+
 
 
 </script>
