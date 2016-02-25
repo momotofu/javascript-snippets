@@ -86,7 +86,6 @@ console.log(average(ancestry.filter(female).map(age)));
 // ▹ 54.56”
 
 
-
 /**
 
 Toys:
