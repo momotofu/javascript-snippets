@@ -233,7 +233,7 @@ $('img').each(function() {
           return j
       })()
   })(jQuery, this);
-  
+  g
 
 // todo extract this to pure javascript and react.js. 
   var $iframe; 

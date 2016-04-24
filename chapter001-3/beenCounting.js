@@ -1,30 +1,41 @@
 function beanCount(char, string) {
   var beans = '';
   for (var i = 0; i < string.length; i++) {
-    if (string.charAt(i) === char) 
+    if (string.charAt(i) === char)
       beans += char;
   }
-  return beans.length; 
+  return beans.length;
 }
 
-console.log(beanCount('z', 'zazluciouszzzigut'));
+// console.log(beanCount('z', 'zazluciouszzzigut'));
 
 
-function beenSpatter(char, string) {
-  var beans = '';
+function beanSpatter(char, string, fuzziness) {
+  if (!fuzziness > 0) {
+    fuzziness = 1;
+  };
 
-  for (var iteration = 0; iteration < string.length; iteration++) {
-    beans += string[iteration]; 
-    
-    var count = Math.random();
-    while (count > 0) {
-      beans += char; 
+  var beanLength = Math.floor(Math.random() * 11);
+  var sl = string.length;
+  var newStr = '';
+  var i = 0;
+  var bean;
+
+  while (i < sl && beanLength >= 0) {
+    bean = '';
+    var numberOfBeans = Math.floor(Math.random() * beanLength);
+    beanLength -= numberOfBeans;
+    for (var j = 0; j <= numberOfBeans; j++) {
+      bean += char;
     }
-  }
 
+    if (Math.floor((Math.random() * fuzziness + 1)) === (fuzziness)) {
+      newStr += (string[i] + bean);
+    }
+    i++;
+  }
+  return newStr;
 }
-/** beanSpill
-Write a function that takes a character
-and a string and returns a new string with
-the character glued in randomly 
-**/ 
+
+
+console.log(beanSpatter('z', 'christopher'));
