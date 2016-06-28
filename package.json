@@ -1,0 +1,28 @@
+{
+  "name": "javascript-snippets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "snippets.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "vwdev": "webpack-validator webpack.config.js --env.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momotofu/javascript-snippets.git"
+  },
+  "author": "Christopher Reece",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/momotofu/javascript-snippets/issues"
+  },
+  "homepage": "https://github.com/momotofu/javascript-snippets#readme",
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "require-directory": "^2.1.1"
+  },
+  "devDependencies": {
+    "webpack-validator": "^2.2.0"
+  }
+}

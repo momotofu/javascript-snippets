@@ -8,7 +8,7 @@
 //
 // -- B --
 // control flow using conditional execution in contrast to the usual top to bottom
-// unary negate logical operator returning the inverse value
+// unary negate logical (first converts to a boolean) operator returning the inverse value
 // recursion
 //
 // -- C --
