@@ -1,4 +1,4 @@
-module.exports = (function() {
+module.exports = (() => {
     function beanCount(char, string) {
       var beans = '';
       for (var i = 0; i < string.length; i++) {
@@ -15,15 +15,15 @@ module.exports = (function() {
       var i = 0;
       var bean;
 
-      while (i < sl.length >= 0) {
+      while (i < sl.length) {
           debugger;
-            bean = '';
-            var numberOfBeans = Math.floor(Math.random() * beanLength);
-            
-            for (var j = 0; j <= numberOfBeans; j++) {
-              bean += char;
-            }
-            i++;
+        bean = '';
+        var numberOfBeans = Math.floor(Math.random() * beanLength);
+        
+        for (var j = 0; j <= numberOfBeans; j++) {
+          bean += char;
+        }
+        i++;
       }
       return newStr;
     }
@@ -32,4 +32,4 @@ module.exports = (function() {
         beanCounter: beanCount,
         beenSpatter: beanSpatter
     }
-}())
+})()
