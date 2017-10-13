@@ -15,14 +15,15 @@ module.exports = (function() {
       var i = 0;
       var bean;
 
-      while (i < sl >= 0) {
-        bean = '';
-        var numberOfBeans = Math.floor(Math.random() * beanLength);
-        
-        for (var j = 0; j <= numberOfBeans; j++) {
-          bean += char;
-        }
-        i++;
+      while (i < sl.length >= 0) {
+          debugger;
+            bean = '';
+            var numberOfBeans = Math.floor(Math.random() * beanLength);
+            
+            for (var j = 0; j <= numberOfBeans; j++) {
+              bean += char;
+            }
+            i++;
       }
       return newStr;
     }
