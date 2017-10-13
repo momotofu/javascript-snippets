@@ -8,27 +8,19 @@ module.exports = (function() {
       return beans.length;
     }
 
-    function beanSpatter(char, string, fuzziness) {
-      if (!fuzziness > 0) {
-        fuzziness = 1;
-      };
-
+    function beanSpatter(char, string) {
       var beanLength = Math.floor(Math.random() * 11);
       var sl = string.length;
       var newStr = '';
       var i = 0;
       var bean;
 
-      while (i < sl && beanLength >= 0) {
+      while (i < sl >= 0) {
         bean = '';
         var numberOfBeans = Math.floor(Math.random() * beanLength);
-        beanLength -= numberOfBeans;
+        
         for (var j = 0; j <= numberOfBeans; j++) {
           bean += char;
-        }
-
-        if (Math.floor((Math.random() * fuzziness + 1)) === (fuzziness)) {
-          newStr += (string[i] + bean);
         }
         i++;
       }
@@ -38,5 +30,5 @@ module.exports = (function() {
     return {
         beanCounter: beanCount,
         beenSpatter: beanSpatter
-}
-)();
+    }
+}())
