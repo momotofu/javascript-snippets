@@ -1,8 +1,8 @@
 module.exports = (() => { 
     var buildTriangle = function(base) {
         var leftBricks = '';
-        var rightBricks = ''; 
-        var counter = base / 2; 
+        var rightBricks = '#'; 
+        var counter = Math.abs(base / 2); 
 
         // fill up leftBricks with empty strings
         for(var i = counter; i > 0; i--) {
@@ -20,21 +20,9 @@ module.exports = (() => {
             console.log(leftBricks + rightBricks);
         } while (counter > 0); 
     }
-    
-    function constructPyramids() {
-        var numberOfPyramids = 10;
-        var base = 3;
-
-        do {
-            buildTriangle(base);
-            base *= 2;
-            numberOfPyramids -= 1; 
-        } while (numberOfPyramids > 0);
-    }
         
     return {
-        buildTriangle: buildTriangle,
-        constructPyramids: constructPyramids
+        buildTriangle: buildTriangle
     }
 })();
 
