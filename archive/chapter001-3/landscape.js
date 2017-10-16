@@ -23,6 +23,10 @@ module.exports = (() => {
       console.log(result);
     };
 
+    function runActionBind(times, action) {
+        for (var i = 0; i < times; i++)
+            action();
+    }
 
     function runAction(times, item, action) {
       for (var i = 0; i < times; i++)
@@ -72,7 +76,8 @@ module.exports = (() => {
         controlSwitch: controlSwitch,
         runAction: runAction,
         absLandscape: absLandscape,
-        buildLandscape: buildLandscape
+        buildLandscape: buildLandscape,
+        runActionBind: runActionBind
     }
 })()
     /** simplify and enhence **/
