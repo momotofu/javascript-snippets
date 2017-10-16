@@ -1,5 +1,5 @@
 module.exports = (() => { 
-    var buildTriangle = function(base) {
+    function buildTriangle(base) {
         let tipOffset = base % 2 == 0 ? ' ' : '';
         var leftBricks = '';
         var rightBricks = '#'; 
@@ -22,8 +22,27 @@ module.exports = (() => {
         } while (counter > 0); 
     }
         
+    function buildObelisk(base, height) {
+        let nBase = base >= 3 ? base : 3
+        let baseStr = buildnBaseString();
+        
+        buildTriangle(nBase)
+        
+        function buildnBaseString() {
+            var baseStr = "";
+            for(var i = 0; i < nBase * 2; i++)
+                baseStr += "#"
+            return baseStr
+        }
+
+        while (height > 0) {
+            console.log(baseStr)
+        }
+    }
+
     return {
-        buildTriangle: buildTriangle
+        buildTriangle: buildTriangle,
+        buildObelisk: buildObelisk
     }
 })();
 
