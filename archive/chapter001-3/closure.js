@@ -28,11 +28,15 @@ module.exports.getEnv = function(world, number) {
 /** Create a more practicle example.
 **/
 
-var warnUser = function (msg) {
+module.exports.warnUser = function (msg) {
     var calledCount = 0;
-    return function() {
-       calledCount++;
-       alert(msg + '\nYou have been warned ' + calledCount + ' times.');
+    return function(resetCallCount) {
+        if (!resetCallCount) {
+            calledCount++;
+        } else {
+            calledCount = 0; 
+        }
+       console.log(msg + '\nYou have been warned ' + calledCount + ' times.');
     };
 };
 
