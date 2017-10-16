@@ -1,8 +1,9 @@
-function generateBoard(width, height) {
+module.exports.generateBoard = function(width, height) {
   var board = '';
   var rowCount = height; 
   var colCount = width;
   var hash = true;
+
   var addPiece = function() {
     board += !!hash ? '#' : ' ';
     hash = !!hash ? false : true; 
@@ -19,9 +20,9 @@ function generateBoard(width, height) {
   console.log(board);
 }
 
-generateBoard(311, 150);
+// generateBoard(311, 150);
 
-function generateSquareboard(size) {
+module.exports.generateSquareBoard = function(size) {
   board = '';
   for (var x = size; x > 0; x--) {
     for (var y = size; y > 0; y--) {
@@ -36,7 +37,7 @@ function generateSquareboard(size) {
   console.log(board);
 }
 
-generateSquareboard(20); 
+// generateSquareboard(20); 
 
 /**
 write a function that generates a diamond.
