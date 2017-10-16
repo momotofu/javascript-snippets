@@ -1,5 +1,4 @@
-
-var landscape = function() {
+module.exports.landscape = function() {
   var result = "";
   var flat = function(size) {
     for (var count = 0; count < size; count++)
@@ -24,12 +23,12 @@ var landscape = function() {
 };
 
 
-function runAction(times, item, action) {
+module.exports.runAction = function(times, item, action) {
   for (var i = 0; i < times; i++)
     action(item); 
 }
 
-function controlSwitch(func1, func2) {
+module.exports.controlSwitch = function(func1, func2) {
   var alternator = Math.round(Math.random() * 10);
   if (alternator > 5)
     func1
@@ -37,7 +36,7 @@ function controlSwitch(func1, func2) {
     func2 
 }
 
-function absLandcape(flats, mountains) {
+module.exports.absLandscape = function(flats, mountains) {
   results = ''; 
   var numFlats = flats; 
   var numMountains = mountains; 
@@ -63,12 +62,12 @@ function absLandcape(flats, mountains) {
   console.log(results); 
 }
 
-function buildLandScape() {
-  absLandcape(5, 20);
+module.exports.buildLandscape = function buildLandscape() {
+  absLandscape(5, 20);
 }
 
 
-setInterval(buildLandScape, 1000); 
+setInterval(buildLandscape, 1000); 
 
 
 /** simplify and enhence **/
