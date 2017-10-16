@@ -60,7 +60,7 @@ function proximity_sort(arr, midpoint) {
 }
 
 // simulated object oriented programing
-function counter() {
+module.exports.counter = function() {
     var a = 0;
     return {
         inc: function() { ++a; },
