@@ -1,5 +1,6 @@
 module.exports = (() => { 
     var buildTriangle = function(base) {
+        let tipOffset = base % 2 == 0 ? ' ' : '';
         var leftBricks = '';
         var rightBricks = '#'; 
         var counter = Math.abs(base / 2); 
@@ -10,7 +11,7 @@ module.exports = (() => {
         }
 
         //place the tip
-        console.log(leftBricks + '#');
+        console.log(`${leftBricks + tipOffset}#`);
 
         // build triangle 
         do {
