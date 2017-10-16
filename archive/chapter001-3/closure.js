@@ -2,31 +2,28 @@
 // Closures are an apparatus for abstraction. e.x. clearly
 // seperating concerns.
 
-function multiplier(factor) {
-  console.log('factor: ' + factor);
+module.exports.multiplier = function(factor) {
   return function(number) {
-    console.log('number: ' + number);
     return function(anotherNumber) {
-      console.log('anotherNumber: ' + anotherNumber);
       return anotherNumber * number * factor;
     }
   }
 }
 
-function getEnv(world, number) {
+module.exports.getEnv = function(world, number) {
   return function(statement) {
     console.log(statement + world + number);
   }
 }
 
-var statement = getEnv('Mars', '10million');
-statement('This is the exotic world of');
-statement('There are so many coo stuffs on ');
+// var statement = getEnv('Mars', '10million');
+// statement('This is the exotic world of');
+// statement('There are so many coo stuffs on ');
 
 
-var thrice = multiplier(3);
-var quasar = thrice(6);
-console.log(quasar(4));
+// var thrice = multiplier(3);
+// var quasar = thrice(6);
+// console.log(quasar(4));
 
 /** Create a more practicle example.
 **/
