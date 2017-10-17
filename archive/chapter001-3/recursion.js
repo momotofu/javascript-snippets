@@ -22,7 +22,7 @@ module.exports = (() => {
   }
 
   function isEven(n) {
-    var iteration = n > 0 ? (n - 2): -1 * (n - 2); 
+    let iteration = n > 0 ? (n - 2) : -1 * (n - 2); 
     if (iteration === 0) 
       return true
     else if (iteration === 1) 
