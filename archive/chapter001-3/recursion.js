@@ -1,36 +1,42 @@
-function power(base, exponent) {
-  if (!!exponent)
-    console.log('called at ' + 'exponent: ' + exponent + ' base: ' + base); 
-  if (exponent == 0)
-    return 1;
-  else
-    return base * power(base, exponent - 1);
-}
-
-function findSolution(target) {
-  function find(start, history) {
-    if (start == target)
-      return history;
-    else if (start > target)
-      return null;
+module.exports = (() => { 
+  function power(base, exponent) {
+    if (!!exponent)
+      console.log('called at ' + 'exponent: ' + exponent + ' base: ' + base); 
+    if (exponent == 0)
+      return 1;
     else
-      return find(start + 5, "(" + history + " + 5)") ||
-             find(start * 3, "(" + history + " * 3)");
+      return base * power(base, exponent - 1);
   }
-  return find(1, "1");
-}
 
-function isEven(n) {
-  var iteration = n > 0 ? (n - 2): -1 * (n - 2); 
-  if (iteration === 0) 
-    return true
-  else if (iteration === 1) 
-    return false 
-  else 
-    return isEven(iteration);
-}
+  function findSolution(target) {
+    function find(start, history) {
+      if (start == target)
+        return history;
+      else if (start > target)
+        return null;
+      else
+        return find(start + 5, "(" + history + " + 5)") ||
+               find(start * 3, "(" + history + " * 3)");
+    }
+    return find(1, "1");
+  }
 
-console.log(isEven(2122));
+  function isEven(n) {
+    var iteration = n > 0 ? (n - 2): -1 * (n - 2); 
+    if (iteration === 0) 
+      return true
+    else if (iteration === 1) 
+      return false 
+    else 
+      return isEven(iteration);
+  }
+
+  return {
+    isEven: isEven,
+    power: power,
+    findSolution: findSolution
+  }
+})();
 
 /** write out the call stack for 
 each function **/ 
