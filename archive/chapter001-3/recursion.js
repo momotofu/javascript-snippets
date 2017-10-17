@@ -1,7 +1,5 @@
 module.exports = (() => { 
   function power(base, exponent) {
-    if (!!exponent)
-      console.log('called at ' + 'exponent: ' + exponent + ' base: ' + base); 
     if (exponent == 0)
       return 1;
     else
@@ -23,6 +21,7 @@ module.exports = (() => {
 
   function isEven(n) {
     let iteration = n > 0 ? (n - 2) : -1 * (n - 2); 
+    
     if (iteration === 0) 
       return true
     else if (iteration === 1) 
