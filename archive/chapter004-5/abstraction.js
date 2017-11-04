@@ -55,8 +55,6 @@ var paddedJournal = map(journal.entries[0], function(n) {
 
 console.log(paddedJournal); 
 
-
-
 function map(array, transform) {
   var newArray = []; 
   array.forEach(function(n) {
