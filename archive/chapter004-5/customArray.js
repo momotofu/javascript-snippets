@@ -1,30 +1,23 @@
-var array = {
+
+exports.array = {
   items: {},
   length: 0,
 
-
-  push: function(p) {
-    items[length] = p; 
+  push: function(n) {
+    items[length] = n; 
     length += 1;
   },
+
   pop: function(p) {
     delete items[length]; 
     length -= 1; 
   },
-  indexOf: function(p) {
+
+  indexOf: function(n) {
     for (var index in items) {
-      if (items[index] === p) {
+      if (items[index] === n) {
         return index;
       }
     }
   }
-
 } 
-
-
-var toDoList = array;
-array.push('exercise');
-array.push('read');
-console.log(array.items);
-
-
