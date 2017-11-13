@@ -11,7 +11,7 @@ var orange = {
   shape: 'circle'
 }
 
-function grabKeys(object) {
+module.exports = function grabKeys(object) {
   var bucket = [];
 
   for (prop in object) {
