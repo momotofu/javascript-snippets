@@ -1,4 +1,4 @@
-@import './animation.css'
+@import url('./animation.css');
 
 html {
   font-family: helvetica;
@@ -30,9 +30,8 @@ html {
 }
 
 .buzz-out {
-  animation-name: hvr-buzz-out;
-  animation-duration: 2000ms;
-  -webkit-animation-iteration-count: 1;
+  animation-name: buzz-out;
+  animation-duration: 1000ms;
 }
 
 #number-of-clicks {
