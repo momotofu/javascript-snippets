@@ -18,3 +18,6 @@ var newSaga = function() {
 newSaga()
 sagas[0]()
 sagas[0]()
+newSaga()
+sagas[0]() // uses same execution context when created
+sagas[1]() // uses different execution conetext from sagas[0]
