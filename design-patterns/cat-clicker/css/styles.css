@@ -1,3 +1,5 @@
+@import './animation.css'
+
 html {
   font-family: helvetica;
 }
@@ -18,12 +20,23 @@ html {
   display: table;
 }
 
+.hero-container:hover {
+  cursor: pointer;
+}
+
 .hero-image {
   width: 100%;
   border-radius: 3px;
+}
+
+.buzz-out {
+  animation-name: hvr-buzz-out;
+  animation-duration: 2000ms;
+  -webkit-animation-iteration-count: 1;
 }
 
 #number-of-clicks {
   color: red;
   font-weight: bold;
 }
+
