@@ -1,5 +1,29 @@
+html {
+  font-family: helvetica;
+}
+
 .main {
   margin: auto;
   max-width: 960px;
   width: 100%;
+}
+
+.hero-title {
+  text-align: center;
+  color: #4CAF50;
+}
+
+.hero-container {
+  margin: auto;
+  display: table;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 3px;
+}
+
+#number-of-clicks {
+  color: red;
+  font-weight: bold;
 }
