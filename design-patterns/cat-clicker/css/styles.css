@@ -31,7 +31,7 @@ html {
 
 .buzz-out {
   animation-name: buzz-out;
-  animation-duration: 1000ms;
+  animation-duration: 0900ms;
 }
 
 #number-of-clicks {
