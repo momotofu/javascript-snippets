@@ -2,7 +2,7 @@
   "name": "javascript-snippets",
   "version": "1.0.0",
   "description": "",
-  "main": "snippets.js",
+  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "vwdev": "webpack-validator webpack.config.js --env.dev"
