@@ -10,14 +10,19 @@ html {
   width: 100%;
 }
 
-.hero-title {
+.title {
   text-align: center;
+  font-size: 24px;
   color: #4CAF50;
+}
+
+.container {
+  display: flex;
 }
 
 .hero-container {
   margin: auto;
-  display: table;
+  padding: 18px;
 }
 
 .hero-container:hover {
