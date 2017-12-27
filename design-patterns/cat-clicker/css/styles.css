@@ -39,7 +39,7 @@ html {
   animation-duration: 0900ms;
 }
 
-#number-of-clicks {
+.number-of-clicks {
   color: red;
   font-weight: bold;
 }
