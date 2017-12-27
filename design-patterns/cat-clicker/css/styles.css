@@ -32,6 +32,16 @@ html {
 .hero-image {
   width: 100%;
   border-radius: 3px;
+  max-height: 297px;
+  transition: all 0.3s ease;
+}
+
+.hero-image:hover {
+  opacity: 0.95;
+}
+
+.hero-image:active {
+  opacity: 1;
 }
 
 .buzz-out {
