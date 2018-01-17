@@ -50,7 +50,9 @@ html {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-
+.cat-list__item--selected {
+  border-right: none;
+}
 .title {
   text-align: center;
   font-size: 24px;
