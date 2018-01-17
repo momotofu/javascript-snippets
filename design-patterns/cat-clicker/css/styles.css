@@ -9,12 +9,51 @@ html {
   margin: auto;
   max-width: 960px;
   width: 100%;
+  display: flex;
+}
+
+.main__section {
+  width: 100%;
+}
+
+.aside {
+  max-width: 240px;
+  width: 100%;
+}
+
+.cat-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cat-list__item {
+  height: 60px;
+  border: 1px solid lightgray;
+  border-top: none;
+  box-sizing: border-box;
+  padding: 6px;
+}
+
+.cat-list__item:hover {
+  cursor: pointer;
+}
+
+.cat-list__item:first-child {
+  border-top: 1px solid lightgray;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.cat-list__item:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 .title {
   text-align: center;
   font-size: 24px;
   color: #4CAF50;
+  margin: -16px;
 }
 
 .container {
