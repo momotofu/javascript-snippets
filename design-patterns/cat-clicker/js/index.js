@@ -1,3 +1,21 @@
+// udate image
+const catListItems = document.getElementsByClassName('cat-list__item')
+
+// set up click action for list
+for (let key in catListItems) {
+  if (!isNaN(parseInt(key))) {
+    catListItems[key].addEventListener('click', function() {
+      console.log("this: ", this)
+      updateMainImage(sup)
+    })
+  }
+}
+
+function updateMainImage(catName) {
+  const heroContainer = document.getElementsByClassName('hero-container')[0]
+  console.log("heroContainer: ", heroContainer)
+}
+
 const catContainerList = document.getElementsByClassName('hero-container')
 
 for (let key in catContainerList) {
