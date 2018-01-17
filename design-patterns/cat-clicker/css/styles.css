@@ -32,10 +32,12 @@ html {
   border-top: none;
   box-sizing: border-box;
   padding: 6px;
+  transition: all .2s ease;
 }
 
 .cat-list__item:hover {
   cursor: pointer;
+  background: lightgray;
 }
 
 .cat-list__item:first-child {
