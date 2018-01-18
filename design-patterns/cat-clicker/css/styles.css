@@ -68,6 +68,7 @@ html {
 .hero-container {
   margin: auto;
   padding: 18px;
+  padding-top: 7px;
 }
 
 .hero-container:hover {
@@ -77,7 +78,7 @@ html {
 .hero-image {
   width: 100%;
   border-radius: 3px;
-  max-height: 297px;
+  min-height: 359px;
   transition: all 0.3s ease;
 }
 
