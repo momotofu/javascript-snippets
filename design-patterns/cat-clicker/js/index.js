@@ -2,7 +2,7 @@
 const catData = (function() {
   const data = {}
 
-  data['cat'] = new Cat('cat', 0, 'cat.jpeg')
+  data['cat'] = new Cat('cat', 2, 'cat.jpeg')
   data['lazy'] = new Cat('lazy', 0, 'lazy.jpeg')
   data['curious'] = new Cat('curious', 0, 'curious.jpeg')
   data['zelda'] = new Cat('zelda', 0, 'zelda.jpeg')
@@ -12,18 +12,16 @@ const catData = (function() {
   return data
 }())
 
-// udate image
 const catListItems = document.getElementsByClassName('cat-list__item')
 
-// set up click action for list
 for (let key in catListItems) {
   if (!isNaN(parseInt(key))) {
     catListItems[key].addEventListener('click', function() {
       updateMainImage(this.id)
+      updateCounterFor(this.id)
     })
   }
 }
-var testEl
 
 function updateMainImage(catName) {
   const heroContainer = document.getElementsByClassName('hero-container')[0]
@@ -35,6 +33,11 @@ function updateMainImage(catName) {
       }
     }
   }
+}
+
+function updateCounterFor(catName) {
+  const counterEl = document.getElementById('number-of-clicks')
+  counterEl.innerHTML = catData[catName].clickCount
 }
 
 const catContainerList = document.getElementsByClassName('hero-container')
