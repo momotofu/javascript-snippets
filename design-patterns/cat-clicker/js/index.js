@@ -20,12 +20,28 @@ const catListItems = document.getElementsByClassName('cat-list__item')
 for (let key in catListItems) {
   if (!isNaN(parseInt(key))) {
     catListItems[key].addEventListener('click', function() {
-      selectedCat = this.id
+      updateSelectedCat(this.id)
       updateMainImage(this.id)
       updateCounterFor(this.id)
     })
   }
 }
+
+function updateSelectedCat(catName) {
+  selectedCat = catName
+  for (let key in catListItems) {
+    if (!isNaN(parseInt(key))) {
+      const cur = catListItems[key]
+      if (cur.id == catName) {
+        cur.classList.remove("cat-list__item--selected")
+        cur.className += " cat-list__item--selected"
+      } else {
+        cur.classList.remove("cat-list__item--selected")
+      }
+    }
+  }
+}
+
 
 function updateMainImage(catName) {
   const heroContainer = document.getElementsByClassName('hero-container')[0]
