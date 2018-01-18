@@ -1,3 +1,16 @@
+import { Cat } from './cat.js'
+
+const catList = []
+
+(function() {
+  catList.push(new Cat('cat', 0, 'cat.jpg'))
+  catList.push(new Cat('lazy', 0, 'lazy.jpg'))
+  catList.push(new Cat('curious', 0, 'curious.jpg'))
+  catList.push(new Cat('zelda', 0, 'zelda.jpg'))
+  catList.push(new Cat('paws', 0, 'paws.jpg'))
+  catList.push(new Cat('jumply', 0, 'jumply.jpg'))
+})()
+
 // udate image
 const catListItems = document.getElementsByClassName('cat-list__item')
 
