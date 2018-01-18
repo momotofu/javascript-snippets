@@ -5,15 +5,23 @@ const catListItems = document.getElementsByClassName('cat-list__item')
 for (let key in catListItems) {
   if (!isNaN(parseInt(key))) {
     catListItems[key].addEventListener('click', function() {
-      console.log("this: ", this)
-      updateMainImage(sup)
+      updateMainImage(this.id)
     })
   }
 }
 
 function updateMainImage(catName) {
   const heroContainer = document.getElementsByClassName('hero-container')[0]
-  console.log("heroContainer: ", heroContainer)
+  for (var key in heroContainer.children) {
+    if (!isNaN(parseInt(key))) {
+      const currentEl = heroContainer.children[key]
+      if (currentEl == 'img') {
+      }
+      if (currentEl == 'figcaption') {
+        for (
+      }
+    }
+  }
 }
 
 const catContainerList = document.getElementsByClassName('hero-container')
