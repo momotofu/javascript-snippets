@@ -1,4 +1,7 @@
+// State
+var selectedCat = 'cat'
 
+// Page data
 const catData = (function() {
   const data = {}
 
@@ -12,11 +15,12 @@ const catData = (function() {
   return data
 }())
 
+// Add click event listeners for cat data
 const catListItems = document.getElementsByClassName('cat-list__item')
-
 for (let key in catListItems) {
   if (!isNaN(parseInt(key))) {
     catListItems[key].addEventListener('click', function() {
+      selectedCat = this.id
       updateMainImage(this.id)
       updateCounterFor(this.id)
     })
@@ -47,9 +51,10 @@ for (let key in catContainerList) {
     catContainerList[key].addEventListener('mousedown', function() {
       const list = this.classList
       list.add('buzz-out')
-      counterTextEl = document.getElementById(`number-of-clicks-${key}`)
-      currentCount = parseInt(counterTextEl.innerText)
-      counterTextEl.innerText =  currentCount ? currentCount + 1 : 1
+      counterEl = document.getElementById('number-of-clicks')
+      currentCount = parseInt(counterEl.innerText)
+      counterEl.innerText =  currentCount ? currentCount + 1 : 1
+      catData[selectedCat].clickCount = counterEl.innerText
     })
 
     catContainerList[key].addEventListener('mouseup', function() {
