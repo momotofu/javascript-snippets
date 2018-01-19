@@ -13,7 +13,9 @@ module.exports.generateSquareBoard = function(size) {
   console.log(board);
 }
 
-// generateSquareboard(20); 
+funcs => {};
+
+// generateSquareboard(20);
 
 /**
 write a function that generates a diamond.
