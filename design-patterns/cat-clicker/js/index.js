@@ -15,19 +15,29 @@ const model = {
   init: function() {
     if (!localStorage.model) {
       // populate model with initial data
-      localStorage.model = JSON.stringify([
-        new Cat('cat', 2, 'cat.jpeg'),
-        new Cat('lazy', 0, 'lazy.jpeg'),
-        new Cat('zelda', 0, 'zelda.jpeg'),
-        new Cat('paws', 0, 'paws.jpeg'),
-        new Cat('jumply', 0, 'jumply.jpeg')
-      ])
+      seq = new Sequence()
+      cats = {}
+
+      cats[seq.get()] = new Cat(seq.get(true), 'cat', 2, 'cat.jpeg'),
+      cats[seq.get()] = new Cat(seq.get(true), 'lazy', 0, 'lazy.jpeg'),
+      cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'zelda.jpeg'),
+      cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg'),
+      cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg'),
+      cats['lastSequence'] = seq.get()
+
+      localStorage.model = JSON.stringify({'cat': cats })
     }
+  },
+  getAllModels: function(modelName) {
+    return JSON.parse(localStorage.model)[modelName]
+  },
+  getOneModel: function(modelName, id) {
+    return JSON.parse(localStorage.model)[modelName][id]
   }
 }
-
 model.init()
 
+window.model = model
 // Add click event listeners for cat data
 const catListItems = document.getElementsByClassName('cat-list__item')
 for (let key in catListItems) {
