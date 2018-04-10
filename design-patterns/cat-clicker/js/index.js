@@ -1,19 +1,32 @@
 // State
 var selectedCat = 'cat'
 
+/*
+data['cat'] = new Cat('cat', 2, 'cat.jpeg')
+data['lazy'] = new Cat('lazy', 0, 'lazy.jpeg')
+data['curious'] = new Cat('curious', 0, 'curious.jpeg')
+data['zelda'] = new Cat('zelda', 0, 'zelda.jpeg')
+data['paws'] = new Cat('paws', 0, 'paws.jpeg')
+data['jumply'] = new Cat('jumply', 0, 'jumply.jpeg')
+*/
+
 // Page data
-const catData = (function() {
-  const data = {}
+const model = {
+  init: function() {
+    if (!localStorage.model) {
+      // populate model with initial data
+      localStorage.model = JSON.stringify([
+        new Cat('cat', 2, 'cat.jpeg'),
+        new Cat('lazy', 0, 'lazy.jpeg'),
+        new Cat('zelda', 0, 'zelda.jpeg'),
+        new Cat('paws', 0, 'paws.jpeg'),
+        new Cat('jumply', 0, 'jumply.jpeg')
+      ])
+    }
+  }
+}
 
-  data['cat'] = new Cat('cat', 2, 'cat.jpeg')
-  data['lazy'] = new Cat('lazy', 0, 'lazy.jpeg')
-  data['curious'] = new Cat('curious', 0, 'curious.jpeg')
-  data['zelda'] = new Cat('zelda', 0, 'zelda.jpeg')
-  data['paws'] = new Cat('paws', 0, 'paws.jpeg')
-  data['jumply'] = new Cat('jumply', 0, 'jumply.jpeg')
-
-  return data
-}())
+model.init()
 
 // Add click event listeners for cat data
 const catListItems = document.getElementsByClassName('cat-list__item')
