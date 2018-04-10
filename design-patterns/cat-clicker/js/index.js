@@ -23,7 +23,7 @@ const model = {
       cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'zelda.jpeg'),
       cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg'),
       cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg'),
-      cats['lastSequence'] = seq.get()
+      cats['nextSequence'] = seq.get()
 
       localStorage.model = JSON.stringify({'cat': cats })
     }
