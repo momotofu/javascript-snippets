@@ -1,5 +1,5 @@
 class Cat {
-  constructor(id, name, clickCount, imageName, content) {
+  constructor(id, name, clickCount, imageName) {
     /* content is an optional dictionary used
      * to populate properites
      */
@@ -10,12 +10,13 @@ class Cat {
     var catClickCount
     var catImageName
 
-    if (!content) {
+    if (!typeof(id) === "object") {
       catID = id
       catName = name
       catClickCount = clickCount
       catImageName = `img/${imageName}`
     } else {
+      const content = id
       catID = content['id']
       catName = content['name']
       catClickCount = content['clickCount']
