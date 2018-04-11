@@ -5,12 +5,13 @@ const model = {
       seq = new Sequence()
       cats = {}
 
-      cats[seq.get()] = new Cat(seq.get(true), 'cat', 2, 'cat.jpeg'),
-      cats[seq.get()] = new Cat(seq.get(true), 'lazy', 0, 'lazy.jpeg'),
-      cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'zelda.jpeg'),
-      cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg'),
-      cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg'),
-      cats['nextSequence'] = seq.get()
+      cats[seq.get()] = new Cat(seq.get(true), 'cat', 2, 'cat.jpeg').serialize(),
+      cats[seq.get()] = new Cat(seq.get(true), 'lazy', 0, 'lazy.jpeg').serialize(),
+      cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'zelda.jpeg').serialize(),
+      cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg').serialize(),
+      cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg').serialize(),
+      cats['nextsequence'] = seq.get()
+      console.log('cats: ', cats)
 
       localStorage.model = JSON.stringify({'cat': cats })
     }
@@ -38,13 +39,15 @@ const model = {
 const controller = {
   init: function() {
     model.init()
+    /*
     mainView.init()
     listView.init()
+    */
   },
-  getAllModels: function(objectName) {
+  getAllObjectsOf: function(objectName) {
     return model.getAllObjectsOf(objectName)
   },
-  updateModel: function(object) {
+  updateOneObject: function(object) {
     model.updateOneObject(object)
   }
 }

@@ -30,6 +30,16 @@ class Cat {
     this.setImageName = function(imageName = catImageName) {
       catImageName = imageName
     }
+
+    // methods
+    this.serialize = function() {
+      return {
+        id : this.getID(),
+        name : this.getName(),
+        imageName : this.getImageName(),
+        clickCount : this.getClickCount()
+      }
+    }
   }
 }
 
