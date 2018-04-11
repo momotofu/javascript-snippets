@@ -1,9 +1,35 @@
 class Cat {
   constructor(id, name, clickCount, imageName) {
-    this.id = id
-    this.name = name
-    this.clickCount = clickCount
-    this.imageName = `img/${imageName}`
+    // properties
+    const catID = id
+    var catName = name
+    var catClickCount = clickCount
+    var catImageName = `img/${imageName}`
+
+    // getters
+    this.getID = function() {
+      return catID
+    }
+    this.getName = function() {
+      return catName
+    }
+    this.getClickCount = function() {
+      return catClickCount
+    }
+    this.getImageName = function() {
+      return catImageName
+    }
+
+    // setters
+    this.setName = function(name = catName) {
+      catName = name
+    }
+    this.setClickCount = function(count = catClickCount) {
+      catClickCount = count
+    }
+    this.setImageName = function(imageName = catImageName) {
+      catImageName = imageName
+    }
   }
 }
 
