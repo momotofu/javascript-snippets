@@ -1,10 +1,26 @@
 class Cat {
-  constructor(id, name, clickCount, imageName) {
+  constructor(id, name, clickCount, imageName, content) {
+    /* content is an optional dictionary used
+     * to populate properites
+     */
+
     // properties
-    const catID = id
-    var catName = name
-    var catClickCount = clickCount
-    var catImageName = `img/${imageName}`
+    var catID
+    var catName
+    var catClickCount
+    var catImageName
+
+    if (!content) {
+      catID = id
+      catName = name
+      catClickCount = clickCount
+      catImageName = `img/${imageName}`
+    } else {
+      catID = content['id']
+      catName = content['name']
+      catClickCount = content['clickCount']
+      catImageName = content['imageName']
+    }
 
     // getters
     this.getID = function() {

@@ -50,7 +50,7 @@ const controller = {
 
     for (let key in objectDict) {
       if (!isNaN(parseInt(key))) {
-        objects.push(new Cat(objectDict[key]))
+        objects.push(new Cat(content = objectDict[key]))
       }
     }
     return objects
@@ -78,7 +78,7 @@ const listView = {
   render: function() {
     // update DOM with any new data changes
     var HTMLString = ''
-    const objectDict = controller.getAllObjectsOf('cat').forEach(function(object) {
+    controller.getAllObjectsOf('cat').forEach(function(object) {
 
         object = objectDict[key]
         HTMLString += `
@@ -87,6 +87,7 @@ const listView = {
           </li>
         `
     })
+    debugger
     this.catList.innerHTML = HTMLString
   }
 }
