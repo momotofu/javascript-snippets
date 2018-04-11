@@ -27,7 +27,7 @@ const model = {
     const modelID = object.getID()
 
     if (storage[modelName][modelID] != undefined) {
-      storage[modelName][modelID] = object
+      storage[modelName][modelID] = object.serialize()
       localStorage.model = JSON.stringify(storage)
     } else {
       console.error(`No model with id of ${modelID}`)
