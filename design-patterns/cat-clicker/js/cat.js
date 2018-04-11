@@ -76,3 +76,25 @@ class Sequence {
     }
   }
 }
+
+class View {
+  constructor(content) {
+    var props = {
+      init: false,
+      state: false,
+      render: false
+    }
+    for (let prop in content) {
+      if (content.hasOwnProperty(prop))  {
+        if (props[prop] != null) {
+          props[prop] = true
+        }
+      }
+    }
+    for (let key in props) {
+      if (props[key] == false) {
+        console.error(`Missing required property ${key} for View.`)
+      }
+    }
+  }
+}

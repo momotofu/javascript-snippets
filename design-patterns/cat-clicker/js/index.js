@@ -63,29 +63,31 @@ const controller = {
   updateOneObject: function(object) {
     model.updateOneObject(object)
   },
-  render: function(viewName) {
+  renderView: function(viewName) {
     this.views[viewName].render()
   }
 }
 
-const mainView = {
+const mainView = new View({
   init: function() {
     // setup event listeners
   },
   render: function() {
     // update DOM with any new data changes
   }
-}
+})
 
-const listView = {
+const listView = new View({
   init: function() {
+    this.state = {}
     this.catList = $('.cat-list')
     listView.render()
 
     // setup event listeners
-    this.catList.children().click(function(event) {
-      
-    })
+    for (let child in this.catList.children) {
+      child.onclick = function() {
+      }
+    }
   },
   render: function() {
     // update DOM with any new data changes
@@ -99,7 +101,7 @@ const listView = {
     })
     this.catList.innerHTML = HTMLString
   }
-}
+})
 
 function updateSelectedCat(catName) {
   selectedCat = catName
