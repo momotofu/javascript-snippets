@@ -15,19 +15,19 @@ const model = {
       localStorage.model = JSON.stringify({'cat': cats })
     }
   },
-  getAllModels: function(modelName) {
-    return JSON.parse(localStorage.model)[modelName]
+  getAllObjectsOf: function(objectName) {
+    return JSON.parse(localStorage.model)[objectName]
   },
-  getOneModel: function(modelName, id) {
-    return JSON.parse(localStorage.model)[modelName][id]
+  getOneObject: function(objectName, id) {
+    return JSON.parse(localStorage.model)[objectName][id]
   },
-  updateOneModel: function(model) {
+  updateOneObject: function(object) {
     const storage = JSON.parse(localStorage.model)
-    const modelName = model.constructor.name.toLowerCase()
-    const modelID = model.id
+    const modelName = object.constructor.name.toLowerCase()
+    const modelID = object.id
 
     if (storage[modelName][modelID] != undefined) {
-      storage[modelName][model.id] = model
+      storage[modelName][object.id] = object
       localStorage.model = JSON.stringify(storage)
     } else {
       console.error(`No model with id of ${modelID}`)
@@ -41,11 +41,11 @@ const controller = {
     mainView.init()
     listView.init()
   },
-  getAllModels: function(modelName) {
-    return model.getAllModels(modelName)
+  getAllModels: function(objectName) {
+    return model.getAllObjectsOf(objectName)
   },
-  updateCounterFor: function(modelName, id) {
-    
+  updateModel: function(object) {
+    model.updateOneObject(object)
   }
 }
 
