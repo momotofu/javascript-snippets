@@ -1,16 +1,3 @@
-// State
-var selectedCat = 'cat'
-
-/*
-data['cat'] = new Cat('cat', 2, 'cat.jpeg')
-data['lazy'] = new Cat('lazy', 0, 'lazy.jpeg')
-data['curious'] = new Cat('curious', 0, 'curious.jpeg')
-data['zelda'] = new Cat('zelda', 0, 'zelda.jpeg')
-data['paws'] = new Cat('paws', 0, 'paws.jpeg')
-data['jumply'] = new Cat('jumply', 0, 'jumply.jpeg')
-*/
-
-// Page data
 const model = {
   init: function() {
     if (!localStorage.model) {
@@ -33,11 +20,41 @@ const model = {
   },
   getOneModel: function(modelName, id) {
     return JSON.parse(localStorage.model)[modelName][id]
+  },
+  updateOneModel: function(model) {
+    const storage = JSON.parse(localStorage.model)
+    const modelName = model.constructor.name.toLowerCase()
+    const modelID = model.id
+
+    if (storage[modelName][modelID] != undefined) {
+      storage[modelName][model.id] = model
+      localStorage.model = JSON.stringify(storage)
+    } else {
+      console.error(`No model with id of ${modelID}`)
+    }
   }
 }
-model.init()
 
-window.model = model
+const controller = {
+  init: function() {
+    model.init()
+    mainView.init()
+    listView.init()
+  },
+  getAllModels: function(modelName) {
+    return model.getAllModels(modelName)
+  },
+  updateCounterFor: function(modelName, id) {
+    
+  }
+}
+
+const mainView = {
+}
+
+const listView = {
+}
+
 // Add click event listeners for cat data
 const catListItems = document.getElementsByClassName('cat-list__item')
 for (let key in catListItems) {

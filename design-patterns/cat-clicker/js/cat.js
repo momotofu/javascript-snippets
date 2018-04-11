@@ -16,9 +16,9 @@ class Sequence {
     this.get = function(shouldUp) {
       if (shouldUp) {
         this.up()
-        return (currentIteration - 1).toString()
+        return (currentIteration - 1)
       } else {
-        return currentIteration.toString()
+        return currentIteration
       }
     }
   }
