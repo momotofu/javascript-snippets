@@ -40,11 +40,20 @@ const controller = {
     model.init()
     /*
     mainView.init()
-    listView.init()
     */
+    listView.init()
   },
   getAllObjectsOf: function(objectName) {
-    return model.getAllObjectsOf(objectName)
+    // returns an array of cat objects
+    objectDict = model.getAllObjectsOf(objectName)
+    objects = []
+
+    for (let key in objectDict) {
+      if (!isNaN(parseInt(key))) {
+        objects.push(new Cat(objectDict[key]))
+      }
+    }
+    return objects
   },
   updateOneObject: function(object) {
     model.updateOneObject(object)
@@ -52,9 +61,34 @@ const controller = {
 }
 
 const mainView = {
+  init: function() {
+    // setup event listeners
+  },
+  render: function() {
+    // update DOM with any new data changes
+  }
 }
 
 const listView = {
+  init: function() {
+    // setup event listeners
+    this.catList = $('.cat-list')
+    listView.render()
+  },
+  render: function() {
+    // update DOM with any new data changes
+    var HTMLString = ''
+    const objectDict = controller.getAllObjectsOf('cat').forEach(function(object) {
+
+        object = objectDict[key]
+        HTMLString += `
+          <li class="cat-list__item" id="${key}>
+            ${object.getName()}
+          </li>
+        `
+    })
+    this.catList.innerHTML = HTMLString
+  }
 }
 
 // Add click event listeners for cat data
