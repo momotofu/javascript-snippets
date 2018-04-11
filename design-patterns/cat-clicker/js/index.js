@@ -11,7 +11,6 @@ const model = {
       cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg').serialize(),
       cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg').serialize(),
       cats['nextsequence'] = seq.get()
-      console.log('cats: ', cats)
 
       localStorage.model = JSON.stringify({'cat': cats })
     }
@@ -25,10 +24,10 @@ const model = {
   updateOneObject: function(object) {
     const storage = JSON.parse(localStorage.model)
     const modelName = object.constructor.name.toLowerCase()
-    const modelID = object.id
+    const modelID = object.getID()
 
     if (storage[modelName][modelID] != undefined) {
-      storage[modelName][object.id] = object
+      storage[modelName][modelID] = object
       localStorage.model = JSON.stringify(storage)
     } else {
       console.error(`No model with id of ${modelID}`)
