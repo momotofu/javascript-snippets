@@ -79,9 +79,8 @@ const listView = {
     // update DOM with any new data changes
     var HTMLString = ''
     controller.getAllObjectsOf('cat').forEach(function(object) {
-        debugger
         HTMLString += `
-          <li class="cat-list__item" id="${object.getID()}>
+          <li class="cat-list__item" id="${object.getID()}">
             ${object.getName()}
           </li>
         `
