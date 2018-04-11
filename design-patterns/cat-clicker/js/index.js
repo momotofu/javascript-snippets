@@ -78,10 +78,10 @@ const mainView = new View({
 })
 
 const listView = new View({
+  state: {},
   init: function() {
-    this.state = {}
-    this.catList = $('.cat-list')
-    listView.render()
+    this.catList = document.getElementsByClassName('.cat-list')
+    this.render()
 
     // setup event listeners
     for (let child in this.catList.children) {
@@ -100,6 +100,9 @@ const listView = new View({
         `
     })
     this.catList.innerHTML = HTMLString
+  },
+  test: function() {
+    console.log('test success')
   }
 })
 

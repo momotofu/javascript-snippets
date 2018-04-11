@@ -79,22 +79,36 @@ class Sequence {
 
 class View {
   constructor(content) {
+    // required properties
     var props = {
       init: false,
       state: false,
       render: false
     }
+
+    // check for required props and
+    // set any extra props
     for (let prop in content) {
       if (content.hasOwnProperty(prop))  {
         if (props[prop] != null) {
           props[prop] = true
         }
+        eval(`this.${prop} = content.${prop}`)
       }
     }
     for (let key in props) {
       if (props[key] == false) {
         console.error(`Missing required property ${key} for View.`)
       }
+    }
+
+    // methods
+    this.getState = function() {
+      return this.state
+    }
+
+    this.setState = function(stateObject) {
+      this.state = Object.assign(this.state, stateObject)
     }
   }
 }
