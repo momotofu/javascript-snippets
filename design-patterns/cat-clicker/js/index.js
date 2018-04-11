@@ -37,6 +37,11 @@ const model = {
 
 const controller = {
   init: function() {
+    this.views = {
+      'listView': listView,
+      'mainView': mainView
+    }
+
     model.init()
     /*
     mainView.init()
@@ -57,6 +62,9 @@ const controller = {
   },
   updateOneObject: function(object) {
     model.updateOneObject(object)
+  },
+  render: function(viewName) {
+    this.views[viewName].render()
   }
 }
 
@@ -71,9 +79,13 @@ const mainView = {
 
 const listView = {
   init: function() {
-    // setup event listeners
     this.catList = $('.cat-list')
     listView.render()
+
+    // setup event listeners
+    this.catList.children().click(function(event) {
+      
+    })
   },
   render: function() {
     // update DOM with any new data changes
@@ -86,18 +98,6 @@ const listView = {
         `
     })
     this.catList.innerHTML = HTMLString
-  }
-}
-
-// Add click event listeners for cat data
-const catListItems = document.getElementsByClassName('cat-list__item')
-for (let key in catListItems) {
-  if (!isNaN(parseInt(key))) {
-    catListItems[key].addEventListener('click', function() {
-      updateSelectedCat(this.id)
-      updateMainImage(this.id)
-      updateCounterFor(this.id)
-    })
   }
 }
 
