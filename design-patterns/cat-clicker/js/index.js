@@ -18,7 +18,7 @@ const model = {
   getAllObjectsOf: function(objectName) {
     return JSON.parse(localStorage.model)[objectName]
   },
-  getOneObject: function(objectName, id) {
+  getOneObjectOf: function(objectName, id) {
     return JSON.parse(localStorage.model)[objectName][id]
   },
   updateOneObject: function(object) {
@@ -38,7 +38,6 @@ const model = {
 const controller = {
   init: function() {
     this.views = {
-      'pageView': pageView,
       'listView': listView,
       'mainView': mainView
     }
@@ -61,6 +60,9 @@ const controller = {
     }
     return objects
   },
+  getOneObjectOf: function(objectName, id) {
+    return new Cat(model.getOneObjectOf(objectName, id))
+  },
   updateOneObject: function(object) {
     model.updateOneObject(object)
   },
@@ -75,6 +77,9 @@ const mainView = new View({
   init: function() {
   },
   render: function() {
+    if (this.props != undefined) {
+
+    }
   }
 })
 
@@ -94,7 +99,7 @@ const listView = new View({
       selectedID : dataID
     })
 
-    const cat = controller.getOneObject('cat', dataID)
+    const cat = controller.getOneObjectOf('cat', dataID)
     controller.renderView('mainView', cat)
   },
   render: function() {

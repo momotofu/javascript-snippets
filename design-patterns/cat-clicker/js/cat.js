@@ -79,9 +79,10 @@ class Sequence {
 
 class View {
   constructor(content) {
+    this.props = {}
     var state = {}
     // required properties
-    var props = {
+    var reqProps = {
       init: false,
       render: false
     }
@@ -90,14 +91,14 @@ class View {
     // set any extra props
     for (let prop in content) {
       if (content.hasOwnProperty(prop))  {
-        if (props[prop] != null) {
-          props[prop] = true
+        if (reqProps[prop] != null) {
+          reqProps[prop] = true
         }
         eval(`this.${prop} = content.${prop}`)
       }
     }
-    for (let key in props) {
-      if (props[key] == false) {
+    for (let key in reqProps) {
+      if (reqProps[key] == false) {
         console.error(`Missing required property ${key} for View.`)
       }
     }
