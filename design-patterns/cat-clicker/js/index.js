@@ -48,6 +48,7 @@ const controller = {
     */
     listView.init()
   },
+
   getAllObjectsOf: function(objectName) {
     // returns an array of cat objects
     objectDict = model.getAllObjectsOf(objectName)
@@ -60,20 +61,28 @@ const controller = {
     }
     return objects
   },
+
   updateOneObject: function(object) {
     model.updateOneObject(object)
   },
+
   renderView: function(viewName) {
     this.views[viewName].render()
   }
 }
 
+const pageView = newView({
+  init: function() {
+  },
+  children: [mainView, listView]
+  render: function() {
+  }
+})
+
 const mainView = new View({
   init: function() {
-    // setup event listeners
   },
   render: function() {
-    // update DOM with any new data changes
   }
 })
 
@@ -82,6 +91,8 @@ const listView = new View({
     this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
   },
+
+  parent: pageView,
 
   clickEvent: function(context, event) {
     event.preventDefault()
