@@ -38,6 +38,7 @@ const model = {
 const controller = {
   init: function() {
     this.views = {
+      'pageView': pageView,
       'listView': listView,
       'mainView': mainView
     }
@@ -48,7 +49,6 @@ const controller = {
     */
     listView.init()
   },
-
   getAllObjectsOf: function(objectName) {
     // returns an array of cat objects
     objectDict = model.getAllObjectsOf(objectName)
@@ -61,23 +61,15 @@ const controller = {
     }
     return objects
   },
-
   updateOneObject: function(object) {
     model.updateOneObject(object)
   },
-
-  renderView: function(viewName) {
-    this.views[viewName].render()
+  renderView: function(viewName, data) {
+    const view = this.views[viewName]
+    view.props.data = data
+    view.render()
   }
 }
-
-const pageView = newView({
-  init: function() {
-  },
-  children: [mainView, listView]
-  render: function() {
-  }
-})
 
 const mainView = new View({
   init: function() {
@@ -91,9 +83,9 @@ const listView = new View({
     this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
   },
-
-  parent: pageView,
-
+  onChange: function() {
+    this.render()
+  },
   clickEvent: function(context, event) {
     event.preventDefault()
     const dataID = event.target.getAttribute('data-id')
@@ -101,9 +93,10 @@ const listView = new View({
     context.setState({
       selectedID : dataID
     })
-    console.log(context.getState())
-  },
 
+    const cat = controller.getOneObject('cat', dataID)
+    controller.renderView('mainView', cat)
+  },
   render: function() {
     // update DOM with any new data changes
     const selectedID = this.getState().selectedID
@@ -129,6 +122,7 @@ const listView = new View({
     }
   }
 })
+
 
 function updateMainImage(catName) {
   const heroContainer = document.getElementsByClassName('hero-container')[0]
