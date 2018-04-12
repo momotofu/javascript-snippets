@@ -83,17 +83,30 @@ const listView = new View({
     this.render()
 
     // setup event listeners
-    for (let child in this.catList.children) {
-      child.onclick = function() {
+    const children = this.catList.children
+    for (let key in children) {
+      if (!isNaN(key)) {
+        child = children[key]
+        child.onclick = this.clickEvent.bind(event, this)
       }
     }
   },
+  clickEvent: function(context, event) {
+    event.preventDefault()
+    const dataID = event.target.getAttribute('data-id')
+
+    context.setState({
+      selectedID : dataID
+    })
+  },
   render: function() {
     // update DOM with any new data changes
+    const selectedID = this.getState().selectedID
     var HTMLString = ''
+
     controller.getAllObjectsOf('cat').forEach(function(object) {
         HTMLString += `
-          <li class="cat-list__item" id="${object.getID()}">
+          <li class="cat-list__item ${selectedID == object.getID() ? 'cat-list__item--selected' : ''}" data-id="${object.getID()}">
             ${object.getName()}
           </li>
         `
