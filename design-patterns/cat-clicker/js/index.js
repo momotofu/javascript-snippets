@@ -119,22 +119,6 @@ const listView = new View({
   }
 })
 
-function updateSelectedCat(catName) {
-  selectedCat = catName
-  for (let key in catListItems) {
-    if (!isNaN(parseInt(key))) {
-      const cur = catListItems[key]
-      if (cur.id == catName) {
-        cur.classList.remove("cat-list__item--selected")
-        cur.className += " cat-list__item--selected"
-      } else {
-        cur.classList.remove("cat-list__item--selected")
-      }
-    }
-  }
-}
-
-
 function updateMainImage(catName) {
   const heroContainer = document.getElementsByClassName('hero-container')[0]
   for (var key in heroContainer.children) {
