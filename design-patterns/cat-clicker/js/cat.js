@@ -79,10 +79,10 @@ class Sequence {
 
 class View {
   constructor(content) {
+    var state = {}
     // required properties
     var props = {
       init: false,
-      state: false,
       render: false
     }
 
@@ -104,11 +104,11 @@ class View {
 
     // methods
     this.getState = function() {
-      return this.state
+      return state
     }
 
     this.setState = function(stateObject) {
-      this.state = Object.assign(this.state, stateObject)
+      state = Object.assign(state, stateObject)
     }
   }
 }

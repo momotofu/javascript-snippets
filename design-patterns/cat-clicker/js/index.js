@@ -78,9 +78,8 @@ const mainView = new View({
 })
 
 const listView = new View({
-  state: {},
   init: function() {
-    this.catList = document.getElementsByClassName('.cat-list')
+    this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
 
     // setup event listeners
@@ -100,9 +99,6 @@ const listView = new View({
         `
     })
     this.catList.innerHTML = HTMLString
-  },
-  test: function() {
-    console.log('test success')
   }
 })
 
@@ -158,3 +154,5 @@ for (let key in catContainerList) {
     })
   }
 }
+
+controller.init()
