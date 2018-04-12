@@ -43,9 +43,7 @@ const controller = {
     }
 
     model.init()
-    /*
     mainView.init()
-    */
     listView.init()
   },
   getAllObjectsOf: function(objectName) {
@@ -75,22 +73,36 @@ const controller = {
 
 const mainView = new View({
   init: function() {
+    this.figure = document.getElementsByClassName('hero-container')[0]
+    this.props.data = controller.getAllObjectsOf('cat')[0]
+    this.render()
+  },
+  onChange: function() {
+    this.render()
+  },
+  clickEvent: function(id, context, event) {
+    event.preventDefault()
+
+    const cat = context.props.data
+    cat.setClickCount(cat.getClickCount() + 1)
+    controller.updateOneObject(cat)
+
+    context.render()
   },
   render: function() {
-    if (this.props != undefined) {
-      const figure = document.getElementsByClassName('hero-container')[0]
-      const cat = this.props.data
+    const cat = this.props.data
 
-      figure.innerHTML = `
-        <img class="hero-image" src="${cat.getImageName()}" alt="a cute and fury kitten">
-        <figcaption>
-          <p>
-            the total number if clicks is <span class="number-of-clicks">${cat.getClickCount()}</span>
-          </p>
-        </figcaption>
-      `
+    this.figure.innerHTML = `
+      <img class="hero-image" src="${cat.getImageName()}" alt="a cute and fury kitten">
+      <figcaption>
+        <p>
+          the total number if clicks is <span class="number-of-clicks">${cat.getClickCount()}</span>
+        </p>
+      </figcaption>
+    `
 
-    }
+    // add event listener
+    this.figure.onclick = this.clickEvent.bind(event, cat.getID(), this)
   }
 })
 
@@ -139,19 +151,7 @@ const listView = new View({
   }
 })
 
-
-function updateMainImage(catName) {
-  const heroContainer = document.getElementsByClassName('hero-container')[0]
-  for (var key in heroContainer.children) {
-    if (!isNaN(parseInt(key))) {
-      const currentEl = heroContainer.children[key]
-      if (currentEl.localName == 'img') {
-        currentEl.src = catData[catName].imageName
-      }
-    }
-  }
-}
-
+/* 
 function updateCounterFor(catName) {
   const counterEl = document.getElementById('number-of-clicks')
   counterEl.innerHTML = catData[catName].clickCount
@@ -176,5 +176,5 @@ for (let key in catContainerList) {
     })
   }
 }
-
+*/
 controller.init()
