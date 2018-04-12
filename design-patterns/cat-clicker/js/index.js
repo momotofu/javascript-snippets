@@ -78,6 +78,17 @@ const mainView = new View({
   },
   render: function() {
     if (this.props != undefined) {
+      const figure = document.getElementsByClassName('hero-container')[0]
+      const cat = this.props.data
+
+      figure.innerHTML = `
+        <img class="hero-image" src="${cat.getImageName()}" alt="a cute and fury kitten">
+        <figcaption>
+          <p>
+            the total number if clicks is <span class="number-of-clicks">${cat.getClickCount()}</span>
+          </p>
+        </figcaption>
+      `
 
     }
   }
