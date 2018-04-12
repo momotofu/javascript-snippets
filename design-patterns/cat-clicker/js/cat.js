@@ -109,6 +109,7 @@ class View {
 
     this.setState = function(stateObject) {
       state = Object.assign(state, stateObject)
+      this.render()
     }
   }
 }

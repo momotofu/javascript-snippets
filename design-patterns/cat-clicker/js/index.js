@@ -81,16 +81,8 @@ const listView = new View({
   init: function() {
     this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
-
-    // setup event listeners
-    const children = this.catList.children
-    for (let key in children) {
-      if (!isNaN(key)) {
-        child = children[key]
-        child.onclick = this.clickEvent.bind(event, this)
-      }
-    }
   },
+
   clickEvent: function(context, event) {
     event.preventDefault()
     const dataID = event.target.getAttribute('data-id')
@@ -98,7 +90,9 @@ const listView = new View({
     context.setState({
       selectedID : dataID
     })
+    console.log(context.getState())
   },
+
   render: function() {
     // update DOM with any new data changes
     const selectedID = this.getState().selectedID
@@ -111,7 +105,17 @@ const listView = new View({
           </li>
         `
     })
+
     this.catList.innerHTML = HTMLString
+
+    // setup event listeners
+    const children = this.catList.children
+    for (let key in children) {
+      if (!isNaN(key)) {
+        child = children[key]
+        child.onclick = this.clickEvent.bind(event, this)
+      }
+    }
   }
 })
 
