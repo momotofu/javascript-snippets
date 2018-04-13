@@ -165,30 +165,4 @@ const listView = new View({
   }
 })
 
-/* 
-function updateCounterFor(catName) {
-  const counterEl = document.getElementById('number-of-clicks')
-  counterEl.innerHTML = catData[catName].clickCount
-}
-
-const catContainerList = document.getElementsByClassName('hero-container')
-
-for (let key in catContainerList) {
-  if (!isNaN(parseInt(key))) {
-    catContainerList[key].addEventListener('mousedown', function() {
-      const list = this.classList
-      list.add('buzz-out')
-      counterEl = document.getElementById('number-of-clicks')
-      currentCount = parseInt(counterEl.innerText)
-      counterEl.innerText =  currentCount ? currentCount + 1 : 1
-      catData[selectedCat].clickCount = counterEl.innerText
-    })
-
-    catContainerList[key].addEventListener('mouseup', function() {
-      const list = this.classList
-      list.remove('buzz-out')
-    })
-  }
-}
-*/
 controller.init()
