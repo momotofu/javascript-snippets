@@ -43,6 +43,7 @@ class Cat {
     }
     this.setClickCount = function(count = catClickCount) {
       catClickCount = count
+      return catClickCount
     }
     this.setImageName = function(imageName = catImageName) {
       catImageName = imageName

@@ -77,15 +77,20 @@ const mainView = new View({
     this.figure = document.getElementsByClassName('hero-container')[0]
     this.props.data = controller.getAllObjectsOf('cat')[0]
     this.render()
+
+    // add event listener
+    const cat = this.props.data
+    this.figure.onclick = this.clickEvent.bind(event, cat.getID(), this)
   },
   clickEvent: function(id, context, event) {
     event.preventDefault()
 
     const cat = context.props.data
-    cat.setClickCount(cat.getClickCount() + 1)
+    const clickCount = cat.setClickCount(cat.getClickCount() + 1)
     controller.updateOneObject(cat)
 
-    context.render()
+    const clickCounter = document.getElementById('number-of-clicks')
+    clickCounter.innerText = clickCount
   },
   render: function() {
     const cat = this.props.data
@@ -94,13 +99,10 @@ const mainView = new View({
       <img class="hero-image" src="${cat.getImageName()}" alt="a cute and fury kitten">
       <figcaption>
         <p>
-          the total number if clicks is <span class="number-of-clicks">${cat.getClickCount()}</span>
+          the total number if clicks is <span class="number-of-clicks" id="number-of-clicks">${cat.getClickCount()}</span>
         </p>
       </figcaption>
     `
-
-    // add event listener
-    this.figure.onclick = this.clickEvent.bind(event, cat.getID(), this)
   }
 })
 
