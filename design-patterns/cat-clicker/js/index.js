@@ -53,13 +53,13 @@ const controller = {
     this.views = {
       'listView': listView,
       'mainView': mainView,
-      'adminView' : adminView
+      'adminPanelView' : adminPanelView
     }
 
     model.init()
     mainView.init()
     listView.init()
-    adminView.init()
+    adminPanelView.init()
   },
 
   getAllObjectsOf: function(objectName) {
@@ -191,7 +191,7 @@ const listView = new View({
   }
 })
 
-const adminView = new View({
+const adminPanelView = new View({
   init: function() {
     this.setState({
       isClosed : true,
