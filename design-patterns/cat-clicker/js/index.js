@@ -1,4 +1,9 @@
 (function() {
+
+/**
+ * model
+ */
+
 const model = {
   init: function() {
     if (!localStorage.model) {
@@ -36,6 +41,10 @@ const model = {
   }
 }
 
+/**
+ * controller
+ */
+
 const controller = {
   init: function() {
     this.views = {
@@ -71,6 +80,10 @@ const controller = {
     view.render()
   }
 }
+
+/**
+ * views
+ */
 
 const mainView = new View({
   init: function() {
