@@ -78,9 +78,6 @@ const mainView = new View({
     this.props.data = controller.getAllObjectsOf('cat')[0]
     this.render()
   },
-  onChange: function() {
-    this.render()
-  },
   clickEvent: function(id, context, event) {
     event.preventDefault()
 
