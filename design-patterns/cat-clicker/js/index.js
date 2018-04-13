@@ -21,12 +21,15 @@ const model = {
       localStorage.model = JSON.stringify({'cat': cats })
     }
   },
+
   getAllObjectsOf: function(objectName) {
     return JSON.parse(localStorage.model)[objectName]
   },
+
   getOneObjectOf: function(objectName, id) {
     return JSON.parse(localStorage.model)[objectName][id]
   },
+
   updateOneObject: function(object) {
     const storage = JSON.parse(localStorage.model)
     const modelName = object.constructor.name.toLowerCase()
@@ -56,6 +59,7 @@ const controller = {
     mainView.init()
     listView.init()
   },
+
   getAllObjectsOf: function(objectName) {
     // returns an array of cat objects
     objectDict = model.getAllObjectsOf(objectName)
@@ -68,12 +72,15 @@ const controller = {
     }
     return objects
   },
+
   getOneObjectOf: function(objectName, id) {
     return new Cat(model.getOneObjectOf(objectName, id))
   },
+
   updateOneObject: function(object) {
     model.updateOneObject(object)
   },
+
   renderView: function(viewName, data) {
     const view = this.views[viewName]
     view.props.data = data
@@ -95,6 +102,7 @@ const mainView = new View({
     const cat = this.props.data
     this.figure.onclick = this.clickEvent.bind(event, cat.getID(), this)
   },
+
   clickEvent: function(id, context, event) {
     event.preventDefault()
 
@@ -105,6 +113,7 @@ const mainView = new View({
     const clickCounter = document.getElementById('number-of-clicks')
     clickCounter.innerText = clickCount
   },
+
   render: function() {
     const cat = this.props.data
 
@@ -133,6 +142,7 @@ const listView = new View({
       }
     }
   },
+
   onChange: function() {
     const children = this.catList.children
     const selectedID = this.getState().selectedID
@@ -149,6 +159,7 @@ const listView = new View({
       }
     }
   },
+
   clickEvent: function(context, event) {
     event.preventDefault()
     const dataID = event.target.getAttribute('data-id')
@@ -160,6 +171,7 @@ const listView = new View({
     const cat = controller.getOneObjectOf('cat', dataID)
     controller.renderView('mainView', cat)
   },
+
   render: function() {
     // update DOM with any new data changes
     const selectedID = this.getState().selectedID
@@ -174,7 +186,6 @@ const listView = new View({
     })
 
     this.catList.innerHTML = HTMLString
-
   }
 })
 
