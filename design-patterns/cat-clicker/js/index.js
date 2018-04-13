@@ -1,3 +1,4 @@
+(function() {
 const model = {
   init: function() {
     if (!localStorage.model) {
@@ -166,3 +167,4 @@ const listView = new View({
 })
 
 controller.init()
+})()
