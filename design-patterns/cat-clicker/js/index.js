@@ -112,7 +112,20 @@ const listView = new View({
     this.render()
   },
   onChange: function() {
-    this.render()
+    const children = this.catList.children
+    const selectedID = this.getState().selectedID
+    const selectedClassName = 'cat-list__item--selected'
+
+    for (let key in children) {
+      if (!isNaN(key)) {
+        const child = children[key]
+        if (child.getAttribute('data-id') != selectedID) {
+          child.classList.remove(selectedClassName)
+        } else {
+          child.classList.add(selectedClassName)
+        }
+      }
+    }
   },
   clickEvent: function(context, event) {
     event.preventDefault()
