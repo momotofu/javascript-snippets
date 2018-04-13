@@ -110,6 +110,15 @@ const listView = new View({
   init: function() {
     this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
+
+    // setup event listeners
+    const children = this.catList.children
+    for (let key in children) {
+      if (!isNaN(key)) {
+        child = children[key]
+        child.onclick = this.clickEvent.bind(event, this)
+      }
+    }
   },
   onChange: function() {
     const children = this.catList.children
@@ -153,14 +162,6 @@ const listView = new View({
 
     this.catList.innerHTML = HTMLString
 
-    // setup event listeners
-    const children = this.catList.children
-    for (let key in children) {
-      if (!isNaN(key)) {
-        child = children[key]
-        child.onclick = this.clickEvent.bind(event, this)
-      }
-    }
   }
 })
 
