@@ -189,5 +189,32 @@ const listView = new View({
   }
 })
 
+const adminView = new View({
+  init: function() {
+    this.setState({
+      isClosed : true
+    })
+
+    this.adminButton = document.getElementById('adminButton')
+    this.adminPanel = document.getElementsByClassName('admin__panel')[0]
+  },
+
+  onChange: function() {
+  },
+
+  animateAdminPanel: function() {
+  },
+
+  adminButtonClick: function(event, context) {
+    event.preventDefault()
+    this.setState({
+      isClosed : !context.getState().isClosed
+    })
+  },
+
+  render: function() {
+  }
+})
+
 controller.init()
 })()
