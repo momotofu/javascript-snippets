@@ -239,9 +239,12 @@ const adminPanelView = new View({
       }
 
       context.adminPanel.setAttribute('style', `transform: translateY(${percentOpen}%)`)
+      const variable = Math.round(percentOpen > 5 ? percentOpen * 0.13: 1)
+
       context.setState({
-        percentOpen: percentOpen + (isPos ? 1 : -1) * 5
+        percentOpen: percentOpen + (isPos ? 1 : -1) * variable
       })
+      console.log(percentOpen)
     }
 
     if (isClosed) {
