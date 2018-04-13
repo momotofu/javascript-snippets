@@ -52,12 +52,14 @@ const controller = {
   init: function() {
     this.views = {
       'listView': listView,
-      'mainView': mainView
+      'mainView': mainView,
+      'adminView' : adminView
     }
 
     model.init()
     mainView.init()
     listView.init()
+    adminView.init()
   },
 
   getAllObjectsOf: function(objectName) {
@@ -192,17 +194,69 @@ const listView = new View({
 const adminView = new View({
   init: function() {
     this.setState({
-      isClosed : true
+      isClosed : true,
+      percentOpen : 0,
+      intervalID : 0
     })
 
     this.adminButton = document.getElementById('adminButton')
     this.adminPanel = document.getElementsByClassName('admin__panel')[0]
+
+    // add event listeners
+    this.adminButton.onclick = this.animateAdminPanel.bind(event, this)
   },
 
   onChange: function() {
+    const percentOpen = this.getState().percentOpen
+
   },
 
-  animateAdminPanel: function() {
+  animateAdminPanel: function(context, event) {
+    var isClosed = context.getState().isClosed
+
+    function movePanel(isPos, context) {
+      var percentOpen = context.getState().percentOpen
+      if (percentOpen >= 100 && isPos) {
+        context.setState({
+          isClosed: false,
+          percentOpen: 100
+        })
+
+        clearInterval(context.getState().intervalID)
+        context.adminPanel.setAttribute('style', `transform: translateY(${percentOpen}%)`)
+        return
+
+      } else if (percentOpen <= 0 && !isPos) {
+        context.setState({
+          isClosed: true,
+          percentClosed: 0
+        })
+
+        clearInterval(context.getState().intervalID)
+        context.adminPanel.setAttribute('style', `transform: translateY(${percentOpen}%)`)
+        return
+
+      }
+
+      context.adminPanel.setAttribute('style', `transform: translateY(${percentOpen}%)`)
+      context.setState({
+        percentOpen: percentOpen + (isPos ? 1 : -1) * 5
+      })
+    }
+
+    if (isClosed) {
+      clearInterval(context.getState().intervalID)
+      context.setState({
+        intervalID: setInterval(movePanel.bind(event, true, context), 10)
+      })
+
+    } else {
+      clearInterval(context.getState().intervalID)
+      context.setState({
+        intervalID: setInterval(movePanel.bind(event, false, context), 10)
+      })
+
+    }
   },
 
   adminButtonClick: function(event, context) {
