@@ -5,15 +5,19 @@ html {
   font-size: 18px;
 }
 
-.main {
-  margin: auto;
-  max-width: 960px;
-  width: 100%;
-  display: flex;
+.admin {
+  background-color: black;
+  overflow: hidden;
+  position: relative;
 }
 
-.main__section {
+.admin__panel {
+  content: '';
+  background-color: pink;
+  height: 100%;
   width: 100%;
+  display: block;
+  position: absolute;
 }
 
 .aside {

@@ -2,19 +2,15 @@
 <html>
   <head>
     <title>Cat Clicker</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <main class="main">
+    <main class="container">
       <aside class="aside">
         <h2>Select a cat</h2>
         <ul class="cat-list">
-          <li class="cat-list__item cat-list__item--selected" id="cat">cat</li>
-          <li class="cat-list__item" id="jumply">jumply</li>
-          <li class="cat-list__item" id="zelda">zelda</li>
-          <li class="cat-list__item" id="curious">curious</li>
-          <li class="cat-list__item" id="paws">paws</li>
-          <li class="cat-list__item" id="lazy">lazy</li>
         </ul>
       </aside>
       <section class="main__section">
@@ -23,19 +19,20 @@
         </header>
         <div class="container">
           <figure class="hero-container">
-            <img class="hero-image" src="img/cat.jpeg" alt="a cute and fury kitten">
-            <figcaption>
-              <p>
-                the total number if clicks is <span class="number-of-clicks" id="number-of-clicks">0</span>
-              </p>
-            </figcaption>
           </figure>
+        </div>
+        <button id="adminButton">
+          SHOW ADMIN
+        </button>
+        <div class="admin">
+          <div class="admin__panel"></div>
+          <div class="admin__controls p-4"></div>
         </div>
       </section>
     </main>
     <footer>
     </footer>
-    <script src="js/cat.js"></script>
+    <script src="js/classes.js"></script>
     <script src="js/index.js"></script>
   </body>
 </html>

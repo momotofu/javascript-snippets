@@ -53,13 +53,15 @@ const controller = {
     this.views = {
       'listView': listView,
       'mainView': mainView,
-      'adminPanelView' : adminPanelView
+      'adminPanelView' : adminPanelView,
+      'adminControlsView' : adminControlsView
     }
 
     model.init()
     mainView.init()
     listView.init()
     adminPanelView.init()
+    adminControlsView.init()
   },
 
   getAllObjectsOf: function(objectName) {
@@ -188,6 +190,30 @@ const listView = new View({
     })
 
     this.catList.innerHTML = HTMLString
+  }
+})
+
+const adminControlsView = new View({
+  init: function() {
+    this.container = document.getElementsByClassName('admin__controls')[0]
+    this.render()
+  },
+
+  render: function() {
+    var HTMLString = `
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Example label</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Another label</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        </div>
+      </form>
+    `
+
+    this.container.innerHTML = HTMLString
   }
 })
 
