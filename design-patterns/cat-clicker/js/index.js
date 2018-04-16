@@ -242,13 +242,29 @@ const adminPanelView = new View({
   },
 
   animateAdminPanel: function(context, event) {
-    var isClosed = context.getState().isClosed
+    const isClosed = context.getState().isClosed
+    context.setState({
+      isClosed: !isClosed
+    })
+
+    if (isClosed) {
+      clearInterval(context.getState().intervalID)
+      context.setState({
+        intervalID: setInterval(movePanel.bind(event, true, context), 10)
+      })
+
+    } else {
+      clearInterval(context.getState().intervalID)
+      context.setState({
+        intervalID: setInterval(movePanel.bind(event, false, context), 10)
+      })
+
+    }
 
     function movePanel(isPos, context) {
       var percentOpen = context.getState().percentOpen
       if (percentOpen >= 100 && isPos) {
         context.setState({
-          isClosed: false,
           percentOpen: 100
         })
 
@@ -258,7 +274,6 @@ const adminPanelView = new View({
 
       } else if (percentOpen <= 0 && !isPos) {
         context.setState({
-          isClosed: true,
           percentClosed: 0
         })
 
@@ -275,27 +290,6 @@ const adminPanelView = new View({
         percentOpen: percentOpen + (isPos ? 1 : -1) * variable
       })
     }
-
-    if (isClosed) {
-      clearInterval(context.getState().intervalID)
-      context.setState({
-        intervalID: setInterval(movePanel.bind(event, true, context), 10)
-      })
-
-    } else {
-      clearInterval(context.getState().intervalID)
-      context.setState({
-        intervalID: setInterval(movePanel.bind(event, false, context), 10)
-      })
-
-    }
-  },
-
-  adminButtonClick: function(event, context) {
-    event.preventDefault()
-    this.setState({
-      isClosed : !context.getState().isClosed
-    })
   },
 
   render: function() {

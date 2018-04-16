@@ -114,6 +114,8 @@ class View {
       if (this.onChange != undefined) {
         this.onChange()
       }
+
+      return state
     }
   }
 }
