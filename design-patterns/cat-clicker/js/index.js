@@ -124,7 +124,7 @@ const mainView = new View({
     this.figure.innerHTML = `
       <img class="hero-image" src="${cat.getImageName()}" alt="a cute and fury kitten">
       <figcaption>
-        <p>
+        <p class="text-left mt-1">
           the total number if clicks is <span class="number-of-clicks" id="number-of-clicks">${cat.getClickCount()}</span>
         </p>
       </figcaption>
