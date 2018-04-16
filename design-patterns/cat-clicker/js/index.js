@@ -214,8 +214,16 @@ const adminControlsView = new View({
           <label for="formGroupExampleInput">Image url</label>
           <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
         </div>
-        <div class="form-group text-light text-right">
-          <label for="formGroupExampleInput">Reset clicks</label>
+        <div class="form-check text-light text-left mb-4">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Reset clicks
+          </label>
+        </div>
+        <div class="text-left">
+          <button class="btn btn-outline-light">Save</button>
+          <button class="btn btn-outline-light">Cancel</button>
+        </div>
       </form>
     `
 
