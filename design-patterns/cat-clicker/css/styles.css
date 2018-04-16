@@ -24,6 +24,10 @@ html {
   position: absolute;
 }
 
+.btn-outline-secondary {
+  border-width: 2px;
+}
+
 .main__section {
   text-align: center;
 }

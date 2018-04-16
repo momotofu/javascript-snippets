@@ -253,12 +253,15 @@ const adminPanelView = new View({
         intervalID: setInterval(movePanel.bind(event, true, context), 10)
       })
 
+      context.adminButton.innerText = "HIDE ADMIN"
+
     } else {
       clearInterval(context.getState().intervalID)
       context.setState({
         intervalID: setInterval(movePanel.bind(event, false, context), 10)
       })
 
+      context.adminButton.innerText = "SHOW ADMIN"
     }
 
     function movePanel(isPos, context) {
