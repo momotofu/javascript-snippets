@@ -208,12 +208,14 @@ const adminControlsView = new View({
       <form>
         <div class="form-group text-light text-left">
           <label for="formGroupExampleInput">Cat name</label>
-          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getName()}">
+          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getName()}">
         </div>
         <div class="form-group text-light text-left">
           <label for="formGroupExampleInput">Image url</label>
-          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
+          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
         </div>
+        <div class="form-group text-light text-right">
+          <label for="formGroupExampleInput">Reset clicks</label>
       </form>
     `
 
