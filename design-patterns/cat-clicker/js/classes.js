@@ -1,6 +1,6 @@
 class Cat {
   constructor(id, name, clickCount, imageName) {
-    /* content is an optional dictionary used
+    /* id can be an optional dictionary used
      * to populate properites
      */
 
