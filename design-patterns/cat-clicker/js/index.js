@@ -197,6 +197,7 @@ const listView = new View({
 const adminControlsView = new View({
   init: function() {
     this.container = document.getElementsByClassName('admin__controls')[0]
+    this.props.data = controller.getAllObjectsOf('cat')[0]
     this.render()
   },
 
@@ -207,11 +208,11 @@ const adminControlsView = new View({
       <form>
         <div class="form-group text-light text-left">
           <label for="formGroupExampleInput">Cat name</label>
-          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getName()}"
+          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getName()}">
         </div>
         <div class="form-group text-light text-left">
-          <label for="formGroupExampleInput">${cat.getImage()}</label>
-          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="Example input">
+          <label for="formGroupExampleInput">Image url</label>
+          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
         </div>
       </form>
     `
@@ -273,7 +274,6 @@ const adminPanelView = new View({
       context.setState({
         percentOpen: percentOpen + (isPos ? 1 : -1) * variable
       })
-      console.log(percentOpen)
     }
 
     if (isClosed) {
