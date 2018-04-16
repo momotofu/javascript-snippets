@@ -174,6 +174,7 @@ const listView = new View({
 
     const cat = controller.getOneObjectOf('cat', dataID)
     controller.renderView('mainView', cat)
+    controller.renderView('adminControlsView', cat)
   },
 
   render: function() {
@@ -200,15 +201,17 @@ const adminControlsView = new View({
   },
 
   render: function() {
+    const cat = this.props.data
+
     var HTMLString = `
       <form>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Example label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <div class="form-group text-light text-left">
+          <label for="formGroupExampleInput">Cat name</label>
+          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="${cat.getName()}"
         </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Another label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        <div class="form-group text-light text-left">
+          <label for="formGroupExampleInput">${cat.getImage()}</label>
+          <input type="text" class="form-control bg-dark" id="formGroupExampleInput" placeholder="Example input">
         </div>
       </form>
     `

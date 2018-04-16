@@ -6,7 +6,7 @@ html {
 }
 
 .admin {
-  background-color: black;
+  background-color: #212121;
   overflow: hidden;
   position: relative;
   max-width: 640px;
