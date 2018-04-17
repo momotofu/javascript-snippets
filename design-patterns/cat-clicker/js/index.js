@@ -53,15 +53,13 @@ const controller = {
     this.views = {
       'listView': listView,
       'mainView': mainView,
-      'adminPanelView' : adminPanelView,
-      'adminControlsView' : adminControlsView
+      'adminPanelView' : adminPanelView
     }
 
     model.init()
     mainView.init()
     listView.init()
     adminPanelView.init()
-    adminControlsView.init()
   },
 
   getAllObjectsOf: function(objectName) {
@@ -174,7 +172,7 @@ const listView = new View({
 
     const cat = controller.getOneObjectOf('cat', dataID)
     controller.renderView('mainView', cat)
-    controller.renderView('adminControlsView', cat)
+    controller.renderView('adminPanelView', cat)
   },
 
   render: function() {
@@ -194,43 +192,6 @@ const listView = new View({
   }
 })
 
-const adminControlsView = new View({
-  init: function() {
-    this.container = document.getElementsByClassName('admin__controls')[0]
-    this.props.data = controller.getAllObjectsOf('cat')[0]
-    this.render()
-  },
-
-  render: function() {
-    const cat = this.props.data
-
-    var HTMLString = `
-      <form>
-        <div class="form-group text-light text-left">
-          <label for="formGroupExampleInput">Cat name</label>
-          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getName()}">
-        </div>
-        <div class="form-group text-light text-left">
-          <label for="formGroupExampleInput">Image url</label>
-          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
-        </div>
-        <div class="form-check text-light text-left mb-4">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Reset clicks
-          </label>
-        </div>
-        <div class="text-left">
-          <button class="btn btn-outline-light">Save</button>
-          <button class="btn btn-outline-light">Cancel</button>
-        </div>
-      </form>
-    `
-
-    this.container.innerHTML = HTMLString
-  }
-})
-
 const adminPanelView = new View({
   init: function() {
     this.setState({
@@ -239,8 +200,12 @@ const adminPanelView = new View({
       intervalID : 0
     })
 
+    this.props.data = controller.getAllObjectsOf('cat')[0]
+    this.controlsContainer = document.getElementsByClassName('admin__controls')[0]
     this.adminButton = document.getElementById('adminButton')
     this.adminPanel = document.getElementsByClassName('admin__panel')[0]
+    this.render()
+
 
     // add event listeners
     this.adminButton.onclick = this.animateAdminPanel.bind(event, this)
@@ -306,6 +271,32 @@ const adminPanelView = new View({
   },
 
   render: function() {
+    const cat = this.props.data
+
+    var HTMLString = `
+      <form>
+        <div class="form-group text-light text-left">
+          <label for="formGroupExampleInput">Cat name</label>
+          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getName()}">
+        </div>
+        <div class="form-group text-light text-left">
+          <label for="formGroupExampleInput">Image url</label>
+          <input type="text" class="form-control bg-dark text-light" id="formGroupExampleInput" placeholder="${cat.getImageName()}">
+        </div>
+        <div class="form-check text-light text-left mb-4">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Reset clicks
+          </label>
+        </div>
+        <div class="text-left">
+          <button class="btn btn-outline-light mr-2">Save</button>
+          <button class="btn btn-outline-light">Cancel</button>
+        </div>
+      </form>
+    `
+
+    this.controlsContainer.innerHTML = HTMLString
   }
 })
 
