@@ -10,11 +10,11 @@ class Cat {
     var catClickCount
     var catImageName
 
-    if (!typeof(id) === "object") {
+    if (typeof(id) === "number") {
       catID = id
       catName = name
       catClickCount = clickCount
-      catImageName = `img/${imageName}`
+      catImageName = `${imageName}`
     } else {
       const content = id
       catID = content['id']

@@ -11,11 +11,11 @@ const model = {
       seq = new Sequence()
       cats = {}
 
-      cats[seq.get()] = new Cat(seq.get(true), 'cat', 2, 'cat.jpeg').serialize(),
-      cats[seq.get()] = new Cat(seq.get(true), 'lazy', 0, 'lazy.jpeg').serialize(),
-      cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'zelda.jpeg').serialize(),
-      cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'paws.jpeg').serialize(),
-      cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'jumply.jpeg').serialize(),
+      cats[seq.get()] = new Cat(seq.get(true), 'cat', 2, 'img/cat.jpeg').serialize(),
+        cats[seq.get()] = new Cat(seq.get(true), 'lazy', 0, 'img/lazy.jpeg').serialize(),
+        cats[seq.get()] = new Cat(seq.get(true), 'zelda', 0, 'img/zelda.jpeg').serialize(),
+        cats[seq.get()] = new Cat(seq.get(true), 'paws', 0, 'img/paws.jpeg').serialize(),
+        cats[seq.get()] = new Cat(seq.get(true), 'jumply', 0, 'img/jumply.jpeg').serialize(),
       cats['nextsequence'] = seq.get()
 
       localStorage.model = JSON.stringify({'cat': cats })
@@ -85,7 +85,9 @@ const controller = {
 
   renderView: function(viewName, data) {
     const view = this.views[viewName]
-    view.props.data = data
+    if (data != undefined) {
+      view.props.data = data
+    }
     view.render()
   }
 }
@@ -207,19 +209,15 @@ const adminPanelView = new View({
     this.nameInput = document.getElementById('nameInput')
     this.imageNameInput = document.getElementById('imageNameInput')
     this.cancelBtn = document.getElementById('cancelBtn')
-    this.savBtn = document.getElementById('cancelBtn')
+    this.saveBtn = document.getElementById('saveBtn')
     this.render()
 
 
 
     // add event listeners
     this.adminButton.onclick = this.animateAdminPanel.bind(event, this)
+    this.saveBtn.onclick = this.saveData.bind(event, this)
     this.cancelBtn.onclick = this.cancelControls.bind(event, this)
-  },
-
-  onChange: function() {
-    const percentOpen = this.getState().percentOpen
-
   },
 
   animateAdminPanel: function(context, event) {
@@ -274,6 +272,23 @@ const adminPanelView = new View({
         percentOpen: percentOpen + (isPos ? 1 : -1) * variable
       })
     }
+  },
+
+  saveData: function(context, event) {
+    event.preventDefault()
+    context.animateAdminPanel(context, event)
+
+    const catName = context.nameInput.value
+    const catImageName = context.nameInput.value
+    const cat = context.props.data
+
+    catName != '' ? cat.setName(catName) : ''
+    catImageName != '' ? cat.setImageName(catImageName) : ''
+
+    controller.updateOneObject(cat)
+    controller.renderView('listView')
+    controller.renderView('mainView')
+    context.render()
   },
 
   cancelControls: function(context, event) {
