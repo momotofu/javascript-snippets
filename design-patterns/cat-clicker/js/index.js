@@ -151,7 +151,7 @@ const listView = new View({
   onChange: function() {
     const children = this.catList.children
     const selectedID = this.getState().selectedID
-    const selectedClassName = 'list-group-item-dark'
+    const selectedClassName = 'cat-list__item--active'
 
     for (let key in children) {
       if (!isNaN(key)) {
@@ -187,7 +187,7 @@ const listView = new View({
 
     controller.getAllObjectsOf('cat').forEach(function(object) {
         HTMLString += `
-          <li class="list-group-item cat-list__item ${selectedID == object.getID() ? 'list-group-item-dark' : ''}" data-id="${object.getID()}">
+          <li class="list-group-item cat-list__item ${selectedID == object.getID() ? 'cat-list__item--active' : ''}" data-id="${object.getID()}">
             ${object.getName()}
           </li>
         `

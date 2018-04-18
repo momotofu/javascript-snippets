@@ -51,6 +51,7 @@ html {
 
 .cat-list__item:hover {
   cursor: pointer;
+  background-color: #8BC34A;
 }
 
 .cat-list__item:first-child {
@@ -60,6 +61,12 @@ html {
 .cat-list__item:last-child {
   border-bottom-width: 2px;
 }
+
+.cat-list__item--active {
+  background-color: #212121;
+  color: white;
+}
+
 
 .cat-list__item:active {
   background-color: #212121;
