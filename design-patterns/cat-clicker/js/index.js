@@ -136,8 +136,9 @@ const listView = new View({
   init: function() {
     this.catList = document.getElementsByClassName('cat-list')[0]
     this.render()
+  },
 
-    // setup event listeners
+  bindEventListeners: function() {
     const children = this.catList.children
     for (let key in children) {
       if (!isNaN(key)) {
@@ -155,6 +156,8 @@ const listView = new View({
     for (let key in children) {
       if (!isNaN(key)) {
         const child = children[key]
+
+        // update elements with the correct class
         if (child.getAttribute('data-id') != selectedID) {
           child.classList.remove(selectedClassName)
         } else {
@@ -191,6 +194,7 @@ const listView = new View({
     })
 
     this.catList.innerHTML = HTMLString
+    this.bindEventListeners()
   }
 })
 
@@ -279,7 +283,7 @@ const adminPanelView = new View({
     context.animateAdminPanel(context, event)
 
     const catName = context.nameInput.value
-    const catImageName = context.nameInput.value
+    const catImageName = context.imageNameInput.value
     const cat = context.props.data
 
     catName != '' ? cat.setName(catName) : ''
