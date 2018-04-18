@@ -211,6 +211,7 @@ const adminPanelView = new View({
     this.adminButton = document.getElementById('adminButton')
     this.adminPanel = document.getElementsByClassName('admin__panel')[0]
     this.nameInput = document.getElementById('nameInput')
+    this.resetClicksInput = document.getElementById('resetClicksInput')
     this.imageNameInput = document.getElementById('imageNameInput')
     this.cancelBtn = document.getElementById('cancelBtn')
     this.saveBtn = document.getElementById('saveBtn')
@@ -284,10 +285,12 @@ const adminPanelView = new View({
 
     const catName = context.nameInput.value
     const catImageName = context.imageNameInput.value
+    const resetClicks = context.resetClicksInput.checked
     const cat = context.props.data
 
     catName != '' ? cat.setName(catName) : ''
     catImageName != '' ? cat.setImageName(catImageName) : ''
+    resetClicks ? cat.setClickCount(0) : ''
 
     controller.updateOneObject(cat)
     controller.renderView('listView')
@@ -309,6 +312,7 @@ const adminPanelView = new View({
 
     this.nameInput.value = ""
     this.imageNameInput.value = ""
+    this.resetClicksInput.checked = false
   }
 })
 
