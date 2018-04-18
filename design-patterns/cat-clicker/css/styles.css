@@ -3,6 +3,11 @@
 html {
   font-family: helvetica;
   font-size: 18px;
+  background: #FAFAFA;
+}
+
+body {
+  background: #FAFAFA;
 }
 
 .admin {
@@ -33,8 +38,19 @@ html {
   text-align: center;
 }
 
+.btn {
+  background: #fff;
+  color: #212121;
+  border-color: #212121;
+}
+
 .btn:focus {
   box-shadow: none;
+}
+
+#adminButton:hover {
+  background-color: #FFD740;
+  color: #212121;
 }
 
 .aside {
