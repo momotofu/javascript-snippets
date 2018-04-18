@@ -134,7 +134,7 @@ const mainView = new View({
 
 const listView = new View({
   init: function() {
-    this.catList = document.getElementsByClassName('cat-list')[0]
+    this.catList = document.getElementById('cat-list')
     this.render()
   },
 
@@ -151,7 +151,7 @@ const listView = new View({
   onChange: function() {
     const children = this.catList.children
     const selectedID = this.getState().selectedID
-    const selectedClassName = 'cat-list__item--selected'
+    const selectedClassName = 'list-group-item-dark'
 
     for (let key in children) {
       if (!isNaN(key)) {
@@ -187,7 +187,7 @@ const listView = new View({
 
     controller.getAllObjectsOf('cat').forEach(function(object) {
         HTMLString += `
-          <li class="cat-list__item ${selectedID == object.getID() ? 'cat-list__item--selected' : ''}" data-id="${object.getID()}">
+          <li class="list-group-item cat-list__item ${selectedID == object.getID() ? 'list-group-item-dark' : ''}" data-id="${object.getID()}">
             ${object.getName()}
           </li>
         `
